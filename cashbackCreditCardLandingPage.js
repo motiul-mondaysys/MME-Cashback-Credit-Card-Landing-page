@@ -1,4 +1,4 @@
-var MM08Help = {
+var MMEHelp = {
     init: function () {
         if (window.location.pathname.indexOf('/credit-card/cashback-credit-card') !== -1) {
             this.HeroBanner();
@@ -29,7 +29,7 @@ var MM08Help = {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5957 9H13.6634" stroke="#0B2828" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.62939 3.75L13.6632 9L8.62939 14.25" stroke="#0B2828" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </a>
 
-                            <ul class="cashback-hero__benefits py-[16px]">
+                            <ul class="cashback-credit-benefits py-[16px]">
                                 <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M6.51497 1.08588L2.17163 2.71463V5.97214C2.17163 8.68673 4.07184 11.0756 6.51497 11.9442C8.9581 11.0756 10.8583 8.68673 10.8583 5.97214V2.71463L6.51497 1.08588Z" stroke="#939A9C" stroke-width="1.08584" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.88623 6.51497L5.97207 7.60081L8.14374 5.42914" stroke="#939A9C" stroke-width="1.08584" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -80,6 +80,59 @@ var MM08Help = {
 
         this.moveAwardSection();
         this.rewardsCompare();
+        this.tagEarnRewardsCount();
+    },
+
+    // Add the .earn-rewards-count class to the div immediately after #perks-use
+    tagEarnRewardsCount: function (attempts) {
+        attempts = attempts || 0;
+
+        var el = document.querySelector('#perks-use + div');
+        if (!el) {
+            if (attempts < 30) {
+                setTimeout(this.tagEarnRewardsCount.bind(this, attempts + 1), 100);
+            }
+            return;
+        }
+
+        el.classList.add('earn-rewards-count');
+
+        // Insert the shared CTA right after the <p> (the same p whose following
+        if (!el.querySelector('.earn-rewards-count__cta-wrap')) {
+            var paragraphs = Array.prototype.slice.call(el.querySelectorAll('p'));
+            var targetP = paragraphs.filter(function (p) {
+                return p.nextElementSibling && p.nextElementSibling.tagName === 'DIV';
+            })[0] || paragraphs[0];
+
+            if (targetP) {
+                targetP.insertAdjacentHTML('afterend', this.ctaWrap('earn-rewards-count__cta-wrap'));
+            }
+        }
+    },
+
+    // Reusable "Get started" CTA + benefits block. Pass a wrapper class so the
+    // same markup can be dropped into multiple sections.
+    ctaWrap: function (modifierClass) {
+        var wrapClass = 'cashback-cta-wrap' + (modifierClass ? ' ' + modifierClass : '');
+        return `
+            <div class="${wrapClass}">
+                <a href="https://apply.moneyme.com.au/crd/qualify/employment-status" class="cashback-hero__cta">
+                    <span>Get started</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5957 9H13.6634" stroke="#0B2828" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.62939 3.75L13.6632 9L8.62939 14.25" stroke="#0B2828" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+
+                <ul class="cashback-credit-benefits">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M6.51497 1.08588L2.17163 2.71463V5.97214C2.17163 8.68673 4.07184 11.0756 6.51497 11.9442C8.9581 11.0756 10.8583 8.68673 10.8583 5.97214V2.71463L6.51497 1.08588Z"  stroke-width="1.08584" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.88623 6.51497L5.97207 7.60081L8.14374 5.42914" stroke-width="1.08584" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Won't impact your credit score
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5.41667 0.833374L1.25 5.83337H5L4.58333 9.16671L8.75 4.16671H5L5.41667 0.833374Z"  stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Decision in as little as 60 minutes
+                    </li>
+                </ul>
+            </div>
+        `;
     },
 
     // Insert the "Rewards you can spend" comparison section before #spyRatesAndFees.
@@ -97,7 +150,7 @@ var MM08Help = {
         }
 
         target.insertAdjacentHTML('beforebegin', `
-            <section class="rewards-compare mt-[80px] mb-[80px]">
+            <section class="rewards-compare pt-[40px]">
                 <div class="container mx-auto">
                     <h2 class="rewards-compare__title font-[sharpGFamily] text-center">Rewards you can spend</h2>
 
@@ -105,11 +158,11 @@ var MM08Help = {
                         <div class="rewards-compare__card rewards-compare__card--airline">
                             <h3 class="rewards-compare__card-title">Airline Reward Credit Cards</h3>
                             <ul class="rewards-compare__list">
-                                <li><span>Earn points that can expire, lose value, or never get used</span></li>
-                                <li><span>Roadblocks when you try to redeem, like flight seat caps, blackout dates and minimum point thresholds</span></li>
-                                <li><span>Paying for benefits you rarely use, like airport lounge access and concierge services</span></li>
-                                <li><span>Hard to know what your points are actually worth</span></li>
-                                <li><span>Could give you back less than you expect</span></li>
+                                <li>Earn points that can expire, lose value, or never get used</li>
+                                <li>Roadblocks when you try to redeem, like flight seat caps, blackout dates and minimum point thresholds</li>
+                                <li>Paying for benefits you rarely use, like airport lounge access and concierge services</li>
+                                <li>Hard to know what your points are actually worth</li>
+                                <li>Could give you back less than you expect</li>
                             </ul>
                         </div>
 
@@ -129,39 +182,100 @@ var MM08Help = {
                         <div class="rewards-compare__card rewards-compare__card--cashback">
                             <h3 class="rewards-compare__card-title">Cashback Rewards Credit Card</h3>
                             <ul class="rewards-compare__list">
-                                <li><span>Earn cashback that never expires</span></li>
-                                <li><span>No redeeming necessary – cashback lands in your account automatically when you pay your minimum repayment on time</span></li>
-                                <li><span>Built-in perks you'll actually want, like mobile phone insurance, purchase protection and event ticket cover</span></li>
-                                <li><span>Real money back in your account</span></li>
-                                <li><span>Rated most valuable ongoing cashback credit card by Finder*</span></li>
+                                <li>Earn cashback that never expires</li>
+                                <li>No redeeming necessary – cashback lands in your account automatically when you pay your minimum repayment on time</li>
+                                <li>Built-in perks you'll actually want, like mobile phone insurance, purchase protection and event ticket cover</li>
+                                <li>Real money back in your account</li>
+                                <li>Rated most valuable ongoing cashback credit card by Finder*</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="rewards-compare__cta-wrap">
-                        <a href="https://apply.moneyme.com.au/crd/qualify/employment-status" class="cashback-hero__cta">
-                            <span>Get started</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5957 9H13.6634" stroke="#0B2828" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.62939 3.75L13.6632 9L8.62939 14.25" stroke="#0B2828" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </a>
-
-                        <ul class="cashback-hero__benefits">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M6.51497 1.08588L2.17163 2.71463V5.97214C2.17163 8.68673 4.07184 11.0756 6.51497 11.9442C8.9581 11.0756 10.8583 8.68673 10.8583 5.97214V2.71463L6.51497 1.08588Z" stroke="#939A9C" stroke-width="1.08584" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.88623 6.51497L5.97207 7.60081L8.14374 5.42914" stroke="#939A9C" stroke-width="1.08584" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                Won't impact your credit score
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5.41667 0.833374L1.25 5.83337H5L4.58333 9.16671L8.75 4.16671H5L5.41667 0.833374Z" stroke="#939A9C" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                Decision in as little as 60 minutes
-                            </li>
-                        </ul>
-                    </div>
+                    ${this.ctaWrap()}
                 </div>
             </section>
         `);
+
+        this.tagEarnedPointSection();
+        this.addRatesFeesCta();
     },
 
-    // Find the existing "Award-winning lender" section on the page (by its
-    // title text) and move that DOM node to sit right after .finder-verified.
+    // Append the shared CTA block to the bottom of the #spyRatesAndFees
+    // section's existing .container.
+    addRatesFeesCta: function () {
+        var section = document.querySelector('#spyRatesAndFees');
+        if (!section || section.querySelector('.rates-fees__cta-wrap')) return;
+
+        var container = section.querySelector('.container') || section;
+        container.insertAdjacentHTML('beforeend', this.ctaWrap('rates-fees__cta-wrap'));
+    },
+
+    // Tag the existing section immediately before .rewards-compare with the
+    // .cashback-earned-point class, then append the shared CTA block as the
+    // last child of that section's existing .container.
+    tagEarnedPointSection: function () {
+        var rewardsCompare = document.querySelector('.rewards-compare');
+        if (!rewardsCompare) return;
+
+        var prevSection = rewardsCompare.previousElementSibling;
+        if (!prevSection || prevSection.classList.contains('cashback-earned-point')) return;
+
+        prevSection.classList.add('cashback-earned-point');
+
+        var container = prevSection.querySelector('.container');
+        if (container) {
+            container.insertAdjacentHTML('beforeend', this.ctaWrap('cashback-earned-point__cta-wrap'));
+        }
+
+        this.replaceEarnedPointIcons(prevSection);
+    },
+
+
+    replaceEarnedPointIcons: function (section) {
+        var icons = {
+            // Coins — "1% cashback on everyday purchases"
+            cashback: `<img class="cashback-earned-point__icon" src="https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/coins-icon.svg" alt="1% cashback on everyday purchases" />`,
+            // Card — "Cashback on autopilot"
+            autopilot: `<img class="cashback-earned-point__icon" src="https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/card-icon.svg" alt="Cashback on autopilot" />`,
+            // Ticket — "Built-in perks you'll actually use"
+            perks: `<img class="cashback-earned-point__icon" src="https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/Ticket-icon.svg" alt="Built-in perks you'll actually use" />`
+        };
+
+        // Replace any remaining phone <picture> with its icon, then make sure
+        var apply = function () {
+            Array.prototype.slice.call(section.querySelectorAll('picture')).forEach(function (pic) {
+                var img = pic.querySelector('img');
+                var alt = ((img && img.getAttribute('alt')) || '').toLowerCase();
+
+                var icon;
+                if (alt.indexOf('autopilot') !== -1) icon = icons.autopilot;
+                else if (alt.indexOf('perks') !== -1) icon = icons.perks;
+                else if (alt.indexOf('everyday') !== -1 || alt.indexOf('cashback') !== -1) icon = icons.cashback;
+
+                if (icon) pic.outerHTML = icon;
+            });
+
+            Array.prototype.slice.call(section.querySelectorAll('.cashback-earned-point__icon')).forEach(function (icon) {
+                var wrap = icon.parentElement;
+                if (wrap && !wrap.classList.contains('cashback-earned-point__icon-wrap')) {
+                    wrap.classList.add('cashback-earned-point__icon-wrap');
+                }
+            });
+        };
+
+        apply();
+
+        if (window.MutationObserver) {
+            new MutationObserver(apply).observe(section, {
+                subtree: true,
+                childList: true,
+                attributes: true,
+                attributeFilter: ['class']
+            });
+        }
+    },
+
+    // Find the existing "Award-winning lender" section on the page
     moveAwardSection: function (attempts) {
         attempts = attempts || 0;
 
@@ -182,23 +296,22 @@ var MM08Help = {
         var awardSection = container ? container.parentElement : awardTitle.parentElement;
         if (!awardSection) return;
 
-        // Already in place — nothing to do.
         if (finderSection.nextElementSibling === awardSection) return;
 
         finderSection.insertAdjacentElement('afterend', awardSection);
     },
 };
 
-(function pollForMM08() {
-    if (window.MM08) return false;
+(function pollForMME() {
+    if (window.MME) return false;
     if (document.querySelector('#__nuxt')) {
-        window.MM08 = {experiment: 'MM08', variation: 'Variation 1', audience: 'All Devices', version: '1.0.01'};
-        console.log(MM08);
-        MM08Help.init();
+        window.MME = {experiment: 'MME Cashback Credit Card Landing page', variation: 'Variation 1', audience: 'All Devices', version: '1.0.01'};
+        console.log(MME);
+        MMEHelp.init();
         window.addEventListener('locationChange', function () {
-            MM08Help.init();
+            MMEHelp.init();
         });
     } else {
-        setTimeout(pollForMM08, 30);
+        setTimeout(pollForMME, 30);
     }
 })();

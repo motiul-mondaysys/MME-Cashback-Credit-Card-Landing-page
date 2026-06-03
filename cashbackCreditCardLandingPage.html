@@ -1,5 +1,5 @@
 <script>
-    var MM08Help = {
+    var MMEHelp = {
         pollCount: 0,
         updateMainCTAButton: function () {
             var button = document.querySelector('.container button.btn-lime');
@@ -8,11 +8,11 @@
         updateModalCTAButton: function () {
             var button = document.querySelector('body > .fixed button.btn-lime');
 
-            if (document.readyState === 'complete') MM08Help.pollCount++;
-            if ((button) || (document.readyState === 'complete' && MM08Help.pollCount > 350)) {
+            if (document.readyState === 'complete') MMEHelp.pollCount++;
+            if ((button) || (document.readyState === 'complete' && MMEHelp.pollCount > 350)) {
                 button.innerHTML = 'Apply now';
             } else {
-                setTimeout(MM08Help.updateModalCTAButton, 30);
+                setTimeout(MMEHelp.updateModalCTAButton, 30);
             }
         },
         updateRestOfCTAButtons: function () {
@@ -27,30 +27,30 @@
                     }
                 });
             } else {
-                setTimeout(MM08Help.updateRestOfCTAButtons, 30);
+                setTimeout(MMEHelp.updateRestOfCTAButtons, 30);
             }
         },
         init: function () {
             if (window.location.pathname.indexOf('/credit-card/cashback-credit-card') !== -1) {
-                MM08Help.updateMainCTAButton();
-                MM08Help.updateRestOfCTAButtons();
-                MM08Help.updateModalCTAButton();
+                MMEHelp.updateMainCTAButton();
+                MMEHelp.updateRestOfCTAButtons();
+                MMEHelp.updateModalCTAButton();
             }
         },
     };
 
-    (function pollForMM08() {
-        if (window.MM08) return false;
+    (function pollForMME() {
+        if (window.MME) return false;
         var button = document.querySelector('.container button.btn-lime');
         if (button) {
-            window.MM08 = {experiment: 'MM08', variation: 'Variation 1', audience: 'All Devices', version: '1.0.01'};
-            console.log(MM08);
-            MM08Help.init();
+            window.MME = {experiment: 'MME', variation: 'Variation 1', audience: 'All Devices', version: '1.0.01'};
+            console.log(MME);
+            MMEHelp.init();
             window.addEventListener('locationChange', function () {
-                MM08Help.init();
+                MMEHelp.init();
             });
         } else {
-            setTimeout(pollForMM08, 30);
+            setTimeout(pollForMME, 30);
         }
     })();
 </script>
