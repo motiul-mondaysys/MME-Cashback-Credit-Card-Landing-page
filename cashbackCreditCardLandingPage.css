@@ -1,7 +1,12 @@
-div[data-v-2a33890a] {
+#__nuxt header.wrap-header + div + div {
   display: none;
 }
 
+#__nuxt #spyRatesAndFees + section.container {
+  display: none;
+}
+
+/*_____Cashback hero section_____*/
 .cashback-hero {
   background: linear-gradient(180deg, #F5FCE1 0%, #FFF 100%);
 }
@@ -212,15 +217,15 @@ div[data-v-2a33890a] {
 .cashback-credit-benefits {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
   list-style: none;
 }
 .cashback-credit-benefits li {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
   color: #313131;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
   line-height: 1.6;
   letter-spacing: 0.165px;
@@ -271,6 +276,7 @@ div[data-v-2a33890a] {
   font-weight: 400;
 }
 
+/*____Perks use section___*/
 #perks-use .container {
   padding-top: 2rem;
 }
@@ -313,4 +319,130 @@ div[data-v-2a33890a] {
 }
 .earn-rewards-count .cashback-credit-benefits li svg {
   stroke: #ffffff;
+}
+
+/*___Digital card section___*/
+.digital-card + div#spyRatesAndFees {
+  display: none;
+}
+.digital-card .digital-card__grid {
+  -moz-column-gap: 80px;
+       column-gap: 80px;
+  row-gap: 32px;
+}
+.digital-card .digital-card__title {
+  color: #0B2828;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.66px;
+  margin-bottom: 24px;
+}
+.digital-card .digital-card__text {
+  color: rgba(11, 40, 40, 0.6);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.33px;
+}
+.digital-card .digital-card__media-img {
+  border-radius: 24px;
+}
+.digital-card .cashback-cta-wrap {
+  margin-top: 56px;
+}
+
+/*_____Review___*/
+#spyReviews .reviews__cta-wrap + div.container {
+  display: none;
+}
+
+/*_____A clearer guide to credit cards_____*/
+.featured-posts {
+  background-color: #F5F5F7;
+  margin-top: -30px;
+}
+.featured-posts .featured-posts__title {
+  color: #0B2828;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.66px;
+  margin-bottom: 48px;
+}
+.featured-posts .featured-posts__grid {
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+  row-gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.featured-posts .featured-post {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 20px;
+  background: #FFF;
+  box-shadow: 0 4px 24px rgba(11, 40, 40, 0.06);
+  overflow: hidden;
+}
+.featured-posts .featured-post__media-img {
+  width: 100%;
+  height: 280px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+.featured-posts .featured-post__body {
+  padding: 24px 8px 8px;
+}
+.featured-posts .featured-post__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.featured-posts .featured-post__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #DDF780;
+  color: #0B2828;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+}
+.featured-posts .featured-post__tag svg {
+  flex-shrink: 0;
+  width: auto;
+  height: 16px;
+}
+.featured-posts .featured-post__title {
+  color: #0B2828;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.52px;
+  margin-bottom: 24px;
+}
+.featured-posts .featured-post__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0B2828;
+  font-size: 14px;
+  font-weight: 500;
+}
+.featured-posts .featured-post__avatar {
+  flex-shrink: 0;
+}
+.featured-posts .featured-post__date,
+.featured-posts .featured-post__read {
+  padding-left: 11px;
+  border-left: 1px solid rgba(11, 40, 40, 0.2);
+  color: rgba(11, 40, 40, 0.7);
+  font-weight: 400;
 }/*# sourceMappingURL=cashbackCreditCardLandingPage.css.map */

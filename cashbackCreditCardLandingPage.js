@@ -2,14 +2,13 @@ var MMEHelp = {
     init: function () {
         if (window.location.pathname.indexOf('/credit-card/cashback-credit-card') !== -1) {
             this.HeroBanner();
-            //document.querySelector('body').classList.add('crd-apply-btn-cta');
         } else {
             //document.querySelector('body').classList.remove('crd-apply-btn-cta');
         }
     },
 
     HeroBanner: function () {
-        var heroBanner = document.querySelector('div[data-v-2a33890a]');
+        var heroBanner = document.querySelector('#__nuxt header.wrap-header + div + div');
         if (heroBanner && !document.querySelector('.cashback-hero')) {
             heroBanner.insertAdjacentHTML('afterend', `
                 <section class="cashback-hero relative mt-[80px] pt-[120px]">
@@ -81,6 +80,107 @@ var MMEHelp = {
         this.moveAwardSection();
         this.rewardsCompare();
         this.tagEarnRewardsCount();
+        this.addReviewsCta();
+        this.addGuideCards();
+    },
+
+    // Insert the "A clearer guide to credit cards" 3-card section after #spyReviews.
+    addGuideCards: function (attempts) {
+        attempts = attempts || 0;
+
+        var reviews = document.querySelector('#spyReviews');
+        if (!reviews) {
+            if (attempts < 30) {
+                setTimeout(this.addGuideCards.bind(this, attempts + 1), 100);
+            }
+            return;
+        }
+
+        if (document.querySelector('.featured-posts')) return;
+
+        var icons = {
+            card: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3.5" width="13" height="9" rx="2" stroke="#0B2828" stroke-width="1.3"/><path d="M1.5 6.5h13" stroke="#0B2828" stroke-width="1.3"/></svg>`,
+            finance: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 9.5c1.5-1 3-1 4.5 0 1.2.8 2.5 1 4 .3l4-2" stroke="#0B2828" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="5" r="2.2" stroke="#0B2828" stroke-width="1.3"/></svg>`,
+            health: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 14V7M8 7c0-2.2 1.6-3.8 3.8-3.8C11.8 5.4 10.2 7 8 7ZM8 8.2C8 6.4 6.6 5 4.8 5 4.8 6.8 6.2 8.2 8 8.2Z" stroke="#0B2828" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+            featured: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2.5l1.2 2.5 2.7.2-2 1.8.6 2.7L8 8.4 5.5 9.7l.6-2.7-2-1.8 2.7-.2L8 2.5Z" stroke="#0B2828" stroke-width="1.1" stroke-linejoin="round"/></svg>`
+        };
+
+        var avatar = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M11.4286 0L10.2492 6.83021H8.32625L8.92571 3.35821L7.65262 4.97111H7.40177L6.68527 3.35867L6.08581 6.83021H4.16342L4.76273 3.35821L3.48935 4.97111H3.23865L2.52229 3.35867L1.92298 6.83021H0L1.17919 0H2.99343L3.84953 2.11559L5.31057 0.185743L5.4512 0H7.15656L7.23266 0.188015L8.0128 2.11559L9.61433 0H11.4286Z" fill="#BBEE00"/></svg>`;
+
+        var cards = [
+            {
+                img: 'https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/blog-featured-01.webp',
+                tags: [['card', 'Credit Card'], ['finance', 'Personal Finance'], ['featured', 'Featured posts']],
+                title: 'What is a cashback credit card? A complete guide to earning rewards',
+                author: 'MONEYME', date: 'April 7, 2026', read: '3 min read'
+            },
+            {
+                img: 'https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/blog-featured-02.webp',
+                tags: [['finance', 'Personal Finance'], ['health', 'Financial Health'], ['featured', 'Featured']],
+                title: 'How to save on your energy bills',
+                author: 'Alexandra Middleton', date: 'June 16, 2025', read: '2 min read'
+            },
+            {
+                img: 'https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/blog-featured-03.webp',
+                tags: [['finance', 'Personal Finance'], ['health', 'Financial Health'], ['featured', 'Featured']],
+                title: 'Credit Card, Loan, Buy Now Pay Later: What’s best for me?',
+                author: 'Alexandra Middleton', date: 'June 16, 2025', read: '3 min read'
+            }
+        ];
+
+        var cardsHtml = cards.map(function (c) {
+            var tags = c.tags.map(function (t) {
+                return `<span class="featured-post__tag">${icons[t[0]]}${t[1]}</span>`;
+            }).join('');
+
+            return `
+                <article class="featured-post">
+                    <div class="featured-post__media">
+                        <img class="featured-post__media-img" src="${c.img}" alt="${c.title}" />
+                    </div>
+                    <div class="featured-post__body">
+                        <div class="featured-post__tags">${tags}</div>
+                        <h3 class="featured-post__title">${c.title}</h3>
+                        <div class="featured-post__meta">
+                            ${avatar}
+                            <span class="featured-post__author">${c.author}</span>
+                            <span class="featured-post__date">${c.date}</span>
+                            <span class="featured-post__read">${c.read}</span>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }).join('');
+
+        reviews.insertAdjacentHTML('afterend', `
+            <section class="featured-posts py-[80px]">
+                <div class="container mx-auto">
+                    <h2 class="featured-posts__title font-[sharpGFamily] text-center">A clearer guide to credit cards</h2>
+                    <div class="featured-posts__grid grid grid-cols-1 lg:grid-cols-3">
+                        ${cardsHtml}
+                    </div>
+                </div>
+            </section>
+        `);
+    },
+
+    // Insert the shared CTA block immediately after the #spyReviews
+    // .carousel-container div.
+    addReviewsCta: function (attempts) {
+        attempts = attempts || 0;
+
+        var carousel = document.querySelector('#spyReviews .carousel-container');
+        if (!carousel) {
+            if (attempts < 30) {
+                setTimeout(this.addReviewsCta.bind(this, attempts + 1), 100);
+            }
+            return;
+        }
+
+        var next = carousel.nextElementSibling;
+        if (next && next.classList.contains('reviews__cta-wrap')) return;
+
+        carousel.insertAdjacentHTML('afterend', this.ctaWrap('reviews__cta-wrap'));
     },
 
     // Add the .earn-rewards-count class to the div immediately after #perks-use
@@ -108,6 +208,37 @@ var MMEHelp = {
                 targetP.insertAdjacentHTML('afterend', this.ctaWrap('earn-rewards-count__cta-wrap'));
             }
         }
+
+        this.addDigitalCardSection(el);
+    },
+
+    // Insert the "digital card" section (text + image + shared CTA) right after
+    // the .earn-rewards-count section.
+    addDigitalCardSection: function (earnRewardsEl) {
+        if (!earnRewardsEl || document.querySelector('.digital-card')) return;
+
+        earnRewardsEl.insertAdjacentHTML('afterend', `
+            <section class="digital-card mt-[72px] mb-[60px]">
+                <div class="container mx-auto">
+                    <div class="container-narrowed">
+                        <div class="digital-card__grid grid grid-cols-1 lg:grid-cols-2 items-center">
+                            <div class="digital-card__content">
+                                <h2 class="digital-card__title font-[sharpGFamily]">A digital card, ready when you are</h2>
+                                <p class="digital-card__text">Approvals in as little as 60 minutes, and you're ready to go. No card. No waiting. Just add your digital card to your mobile wallet and start spending from the moment you're approved.<sup>4</sup></p>
+                            </div>
+
+                            <div class="digital-card__media">
+                                <img class="digital-card__media-img"
+                                    src="https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/Woman_holding_phone.webp"
+                                    alt="Woman adding her MoneyMe digital card to her mobile wallet and tapping to pay" />
+                            </div>
+                        </div>
+
+                        ${this.ctaWrap('digital-card__cta-wrap')}
+                    </div>
+                </div>
+            </section>
+        `);
     },
 
     // Reusable "Get started" CTA + benefits block. Pass a wrapper class so the

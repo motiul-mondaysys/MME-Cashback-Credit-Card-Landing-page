@@ -1,7 +1,11 @@
-div[data-v-2a33890a] {
-  display: none;
+#__nuxt header.wrap-header + div + div {
+    display: none;
+}
+#__nuxt #spyRatesAndFees + section.container {
+    display: none;
 }
 
+/*_____Cashback hero section_____*/
 .cashback-hero {
   background: linear-gradient(180deg, #F5FCE1 0%, #FFF 100%);
   .container{ column-gap: 80px; align-items: center;}
@@ -15,7 +19,7 @@ div[data-v-2a33890a] {
     border: 1px solid #DADFDF;
     background: #FFF;
     color: #000; 
-    font-size: 16px;
+    font-size: 16px; 
     font-weight: 500;
     line-height: 1.05;
     letter-spacing: -0.48px;
@@ -234,15 +238,15 @@ div[data-v-2a33890a] {
 .cashback-credit-benefits {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
   list-style: none; 
 
   li {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
     color: #313131;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 300;
     line-height: 1.6;
     letter-spacing: 0.165px;
@@ -289,6 +293,7 @@ div[data-v-2a33890a] {
   }
 }
 
+/*____Perks use section___*/
 #perks-use{
   .container{ padding-top: 2rem;}
   .perks-use-content .flex-row > div:first-child{ display: none;}
@@ -327,4 +332,144 @@ div[data-v-2a33890a] {
     color: #fff;
   }
   .cashback-credit-benefits li svg{ stroke: #ffffff;}
+}
+
+/*___Digital card section___*/
+.digital-card {
+  &+ div#spyRatesAndFees {
+    display: none;
+  }
+  .digital-card__grid {
+    column-gap: 80px;
+    row-gap: 32px;
+  }
+
+  .digital-card__title {
+    color: #0B2828;
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.66px;
+    margin-bottom: 24px;
+  }
+
+  .digital-card__text {
+    color: rgba(11, 40, 40, 0.60);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.33px;
+  }
+
+  .digital-card__media-img {
+    border-radius: 24px;
+  }
+
+  .cashback-cta-wrap {
+    margin-top: 56px;
+  }
+}
+
+/*_____Review___*/
+#spyReviews{
+  .reviews__cta-wrap + div.container {
+      display: none;
+  }
+}
+
+/*_____A clearer guide to credit cards_____*/
+.featured-posts {
+  background-color: #F5F5F7;
+  margin-top: -30px;
+  .featured-posts__title {
+    color: #0B2828;
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.66px;
+    margin-bottom: 48px;
+  }
+
+  .featured-posts__grid {
+    column-gap: 24px;
+    row-gap: 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .featured-post {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0 4px 24px rgba(11, 40, 40, 0.06);
+    overflow: hidden;
+  }
+
+  .featured-post__media-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+  }
+
+  .featured-post__body {
+    padding: 24px 8px 8px;
+  }
+
+  .featured-post__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .featured-post__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #DDF780;
+    color: #0B2828;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+
+    svg {
+      flex-shrink: 0;
+      width: auto;
+      height: 16px;
+    }
+  }
+
+  .featured-post__title {
+    color: #0B2828;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.52px;
+    margin-bottom: 24px;
+  }
+
+  .featured-post__meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0B2828;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .featured-post__avatar { flex-shrink: 0; }
+
+  .featured-post__date,
+  .featured-post__read {
+    padding-left: 11px;
+    border-left: 1px solid rgba(11, 40, 40, 0.20);
+    color: rgba(11, 40, 40, 0.70);
+    font-weight: 400;
+  }
 }
