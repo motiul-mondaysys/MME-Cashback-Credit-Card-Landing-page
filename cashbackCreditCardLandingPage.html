@@ -1,0 +1,56 @@
+<script>
+    var MM08Help = {
+        pollCount: 0,
+        updateMainCTAButton: function () {
+            var button = document.querySelector('.container button.btn-lime');
+            button.innerHTML = 'Apply now';
+        },
+        updateModalCTAButton: function () {
+            var button = document.querySelector('body > .fixed button.btn-lime');
+
+            if (document.readyState === 'complete') MM08Help.pollCount++;
+            if ((button) || (document.readyState === 'complete' && MM08Help.pollCount > 350)) {
+                button.innerHTML = 'Apply now';
+            } else {
+                setTimeout(MM08Help.updateModalCTAButton, 30);
+            }
+        },
+        updateRestOfCTAButtons: function () {
+            var buttons = document.querySelectorAll('button.btn-lime');
+
+            if (buttons) {
+                buttons.forEach(function (button) {
+                    var buttonText = button.textContent.trim().toLowerCase();
+                    if (buttonText === 'get started') {
+                        button.classList.add('apply-btn-atc');
+                        button.innerHTML = 'Apply now';
+                    }
+                });
+            } else {
+                setTimeout(MM08Help.updateRestOfCTAButtons, 30);
+            }
+        },
+        init: function () {
+            if (window.location.pathname.indexOf('/credit-card/cashback-credit-card') !== -1) {
+                MM08Help.updateMainCTAButton();
+                MM08Help.updateRestOfCTAButtons();
+                MM08Help.updateModalCTAButton();
+            }
+        },
+    };
+
+    (function pollForMM08() {
+        if (window.MM08) return false;
+        var button = document.querySelector('.container button.btn-lime');
+        if (button) {
+            window.MM08 = {experiment: 'MM08', variation: 'Variation 1', audience: 'All Devices', version: '1.0.01'};
+            console.log(MM08);
+            MM08Help.init();
+            window.addEventListener('locationChange', function () {
+                MM08Help.init();
+            });
+        } else {
+            setTimeout(pollForMM08, 30);
+        }
+    })();
+</script>
