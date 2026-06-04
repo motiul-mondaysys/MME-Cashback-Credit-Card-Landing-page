@@ -82,6 +82,76 @@ var MMEHelp = {
         this.tagEarnRewardsCount();
         this.addReviewsCta();
         this.addGuideCards();
+        this.tagFaqSection();
+        this.moveDisclaimerSibling();
+    },
+
+    // Move the div immediately after #scrollDisclaimer (the "#scrollDisclaimer + div"
+    // adjacent sibling) to sit right above #scrollDisclaimer.
+    moveDisclaimerSibling: function (attempts) {
+        attempts = attempts || 0;
+
+        var disclaimer = document.querySelector('#scrollDisclaimer');
+        var nextDiv = disclaimer && disclaimer.nextElementSibling;
+
+        if (!disclaimer || !nextDiv || nextDiv.tagName !== 'DIV') {
+            if (attempts < 30) {
+                setTimeout(this.moveDisclaimerSibling.bind(this, attempts + 1), 100);
+            }
+            return;
+        }
+
+        if (disclaimer.dataset.siblingMoved) return;
+
+        disclaimer.insertAdjacentElement('beforebegin', nextDiv);
+        nextDiv.classList.add('remap-breadcrumb');
+        disclaimer.dataset.siblingMoved = '1';
+    },
+
+    // Add the .faq-section class to the div immediately after .featured-posts
+    // (the ".featured-posts + div" adjacent sibling).
+    tagFaqSection: function (attempts) {
+        attempts = attempts || 0;
+
+        var el = document.querySelector('.featured-posts + div');
+        if (!el) {
+            if (attempts < 30) {
+                setTimeout(this.tagFaqSection.bind(this, attempts + 1), 100);
+            }
+            return;
+        }
+
+        el.classList.add('faq-section');
+
+        this.tagEarnRewardsAfterFaq();
+    },
+
+    // Add the .earn-rewards-count class to the div immediately after
+    // .faq-section (the ".faq-section + div" adjacent sibling).
+    tagEarnRewardsAfterFaq: function (attempts) {
+        attempts = attempts || 0;
+
+        var el = document.querySelector('.faq-section + div');
+        if (!el) {
+            if (attempts < 30) {
+                setTimeout(this.tagEarnRewardsAfterFaq.bind(this, attempts + 1), 100);
+            }
+            return;
+        }
+
+        el.classList.add('earn-rewards-count');
+
+        // Insert the shared CTA right after the <p> (the same p whose following
+        if (!el.querySelector('.earn-rewards-count__cta-wrap')) {
+            var paragraphs = Array.prototype.slice.call(el.querySelectorAll('p'));
+            var targetP = paragraphs.filter(function (p) {
+                return p.nextElementSibling && p.nextElementSibling.tagName === 'DIV';
+            })[0] || paragraphs[0];
+
+            if (targetP) {
+                targetP.insertAdjacentHTML('afterend', this.ctaWrap('earn-rewards-count__cta-wrap'));
+            }
+        }
     },
 
     // Insert the "A clearer guide to credit cards" 3-card section after #spyReviews.
@@ -99,29 +169,32 @@ var MMEHelp = {
         if (document.querySelector('.featured-posts')) return;
 
         var icons = {
-            card: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3.5" width="13" height="9" rx="2" stroke="#0B2828" stroke-width="1.3"/><path d="M1.5 6.5h13" stroke="#0B2828" stroke-width="1.3"/></svg>`,
-            finance: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 9.5c1.5-1 3-1 4.5 0 1.2.8 2.5 1 4 .3l4-2" stroke="#0B2828" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="5" r="2.2" stroke="#0B2828" stroke-width="1.3"/></svg>`,
-            health: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 14V7M8 7c0-2.2 1.6-3.8 3.8-3.8C11.8 5.4 10.2 7 8 7ZM8 8.2C8 6.4 6.6 5 4.8 5 4.8 6.8 6.2 8.2 8 8.2Z" stroke="#0B2828" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-            featured: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2.5l1.2 2.5 2.7.2-2 1.8.6 2.7L8 8.4 5.5 9.7l.6-2.7-2-1.8 2.7-.2L8 2.5Z" stroke="#0B2828" stroke-width="1.1" stroke-linejoin="round"/></svg>`
+            card: `https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/Credit-Card-icon.svg`,
+            finance: `https://images.ctfassets.net/ux3h34l6q83e/7aXxgmypq4jyl5eHaOvUCo/30c63683399083c69499dc80db24f72d/10.svg`,
+            health: `https://images.ctfassets.net/ux3h34l6q83e/59lf8r36N3ZqFpWnReq7HE/80261202d744b005aad86582a1a2267b/12.svg`,
+            featured: `https://images.ctfassets.net/ux3h34l6q83e/4HRAhVkstekYLjE8EOHg3T/b800bbeffbf841ffa0d4c034123a6efc/13.svg`
         };
 
-        var avatar = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M11.4286 0L10.2492 6.83021H8.32625L8.92571 3.35821L7.65262 4.97111H7.40177L6.68527 3.35867L6.08581 6.83021H4.16342L4.76273 3.35821L3.48935 4.97111H3.23865L2.52229 3.35867L1.92298 6.83021H0L1.17919 0H2.99343L3.84953 2.11559L5.31057 0.185743L5.4512 0H7.15656L7.23266 0.188015L8.0128 2.11559L9.61433 0H11.4286Z" fill="#BBEE00"/></svg>`;
+        var avatar = `https://images.ctfassets.net/ux3h34l6q83e/12A6zKzw8RQkmPJyU8upvZ/683f6e24285f5aed54e2b231240b838c/author.png`;
 
         var cards = [
             {
                 img: 'https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/blog-featured-01.webp',
+                link: 'https://www.moneyme.com.au/blog/cashback-reward-credit-card',
                 tags: [['card', 'Credit Card'], ['finance', 'Personal Finance'], ['featured', 'Featured posts']],
                 title: 'What is a cashback credit card? A complete guide to earning rewards',
                 author: 'MONEYME', date: 'April 7, 2026', read: '3 min read'
             },
             {
                 img: 'https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/blog-featured-02.webp',
+                link: 'https://www.moneyme.com.au/blog/how-to-save-on-your-energy-bills',
                 tags: [['finance', 'Personal Finance'], ['health', 'Financial Health'], ['featured', 'Featured']],
                 title: 'How to save on your energy bills',
                 author: 'Alexandra Middleton', date: 'June 16, 2025', read: '2 min read'
             },
             {
                 img: 'https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/blog-featured-03.webp',
+                link: 'https://www.moneyme.com.au/blog/credit-card-loan-buy-now-pay-later-whats-best-for-me',
                 tags: [['finance', 'Personal Finance'], ['health', 'Financial Health'], ['featured', 'Featured']],
                 title: 'Credit Card, Loan, Buy Now Pay Later: What’s best for me?',
                 author: 'Alexandra Middleton', date: 'June 16, 2025', read: '3 min read'
@@ -130,11 +203,11 @@ var MMEHelp = {
 
         var cardsHtml = cards.map(function (c) {
             var tags = c.tags.map(function (t) {
-                return `<span class="featured-post__tag">${icons[t[0]]}${t[1]}</span>`;
+                return `<span class="featured-post__tag"><img src="${icons[t[0]]}" alt="" />${t[1]}</span>`;
             }).join('');
 
             return `
-                <article class="featured-post">
+                <a class="featured-post" href="${c.link}">
                     <div class="featured-post__media">
                         <img class="featured-post__media-img" src="${c.img}" alt="${c.title}" />
                     </div>
@@ -142,13 +215,13 @@ var MMEHelp = {
                         <div class="featured-post__tags">${tags}</div>
                         <h3 class="featured-post__title">${c.title}</h3>
                         <div class="featured-post__meta">
-                            ${avatar}
+                            <img class="featured-post__avatar" src="${avatar}" alt="${c.author}" />
                             <span class="featured-post__author">${c.author}</span>
                             <span class="featured-post__date">${c.date}</span>
                             <span class="featured-post__read">${c.read}</span>
                         </div>
                     </div>
-                </article>
+                </a>
             `;
         }).join('');
 
@@ -329,6 +402,58 @@ var MMEHelp = {
 
         this.tagEarnedPointSection();
         this.addRatesFeesCta();
+        this.addCashbackFeatures();
+    },
+
+    // Insert the 3-feature section (icons + text + shared CTA) right before
+    addCashbackFeatures: function () {
+        var rewardsCompare = document.querySelector('.rewards-compare');
+        if (!rewardsCompare || document.querySelector('.cashback-features')) return;
+
+        var arrow = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M1.33389 9.33337H11.4581L7.05626 13.7164C6.80509 13.9673 6.66398 14.3075 6.66398 14.6623C6.66398 15.0171 6.80509 15.3573 7.05626 15.6082C7.30744 15.8591 7.64811 16 8.00332 16C8.35854 16 8.69921 15.8591 8.95039 15.6082L15.6198 8.94702C15.7413 8.82032 15.8365 8.67092 15.8999 8.50739C16.0334 8.18304 16.0334 7.81923 15.8999 7.49489C15.8365 7.33135 15.7413 7.18195 15.6198 7.05525L8.95039 0.394074C8.82638 0.269207 8.67885 0.170094 8.51631 0.102458C8.35376 0.0348225 8.17941 9.53674e-07 8.00332 9.53674e-07C7.82724 9.53674e-07 7.65289 0.0348225 7.49034 0.102458C7.3278 0.170094 7.18027 0.269207 7.05626 0.394074C6.93124 0.517923 6.83201 0.665269 6.76429 0.827614C6.69657 0.989959 6.6617 1.16409 6.6617 1.33996C6.6617 1.51583 6.69657 1.68996 6.76429 1.85231C6.83201 2.01465 6.93124 2.162 7.05626 2.28585L11.4581 6.6689H1.33389C0.980118 6.6689 0.640838 6.80926 0.390685 7.0591C0.140532 7.30895 0 7.64781 0 8.00114C0 8.35447 0.140532 8.69333 0.390685 8.94317C0.640838 9.19301 0.980118 9.33337 1.33389 9.33337Z" fill="#313131"/></svg>`;
+
+        var items = [
+            {
+                icon: 'https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/coins-icon.svg',
+                title: '1% cashback on everyday purchases',
+                text: 'No complicated points systems. Earn 1% cashback on everyday purchases like groceries, transport, and your daily coffee – up to a maximum of 1% of your credit limit per month.',
+                link: '#spyRatesAndFees'
+            },
+            {
+                icon: 'https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/card-icon.svg',
+                title: 'Cashback on <br> autopilot',
+                text: 'Monthly cashback credited straight to your credit card account balance, when you make your minimum repayment on time. No hoops or expiry dates – your cashback takes care of itself.'
+            },
+            {
+                icon: 'https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/Ticket-icon.svg',
+                title: 'Built-in perks you can actually use',
+                text: 'Mobile phone insurance, purchase protection, and event ticket cover built in when you pay in full using your MONEYME Cashback Rewards Card.<sup>1</sup>',
+                link: '#perks-use'
+            }
+        ];
+
+        var itemsHtml = items.map(function (it) {
+            return `
+                <div class="cashback-features__item">
+                    <img class="cashback-features__icon" src="${it.icon}" alt="" />
+                    <h3 class="cashback-features__title font-[sharpGFamily]">${it.title}</h3>
+                    <p class="cashback-features__text">${it.text}</p>
+                    ${it.link ? `<a class="cashback-features__link" href="${it.link}">Keep reading ${arrow}</a>` : ''}
+                </div>
+            `;
+        }).join('');
+
+        rewardsCompare.insertAdjacentHTML('beforebegin', `
+            <section class="cashback-features mt-[80px] mb-[80px]">
+                <div class="container mx-auto">
+                    <div class="cashback-features__grid grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
+                        ${itemsHtml}
+                    </div>
+
+                    ${this.ctaWrap('cashback-features__cta-wrap')}
+                </div>
+            </section>
+        `);
     },
 
     // Append the shared CTA block to the bottom of the #spyRatesAndFees
@@ -342,8 +467,7 @@ var MMEHelp = {
     },
 
     // Tag the existing section immediately before .rewards-compare with the
-    // .cashback-earned-point class, then append the shared CTA block as the
-    // last child of that section's existing .container.
+    // .cashback-earned-point class.
     tagEarnedPointSection: function () {
         var rewardsCompare = document.querySelector('.rewards-compare');
         if (!rewardsCompare) return;
@@ -352,58 +476,6 @@ var MMEHelp = {
         if (!prevSection || prevSection.classList.contains('cashback-earned-point')) return;
 
         prevSection.classList.add('cashback-earned-point');
-
-        var container = prevSection.querySelector('.container');
-        if (container) {
-            container.insertAdjacentHTML('beforeend', this.ctaWrap('cashback-earned-point__cta-wrap'));
-        }
-
-        this.replaceEarnedPointIcons(prevSection);
-    },
-
-
-    replaceEarnedPointIcons: function (section) {
-        var icons = {
-            // Coins — "1% cashback on everyday purchases"
-            cashback: `<img class="cashback-earned-point__icon" src="https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/coins-icon.svg" alt="1% cashback on everyday purchases" />`,
-            // Card — "Cashback on autopilot"
-            autopilot: `<img class="cashback-earned-point__icon" src="https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/card-icon.svg" alt="Cashback on autopilot" />`,
-            // Ticket — "Built-in perks you'll actually use"
-            perks: `<img class="cashback-earned-point__icon" src="https://c.webtrends-optimize.com/acs/accounts/ecfdc4c4-f0bd-4ed9-8d3a-6aa75c545421/manager/Ticket-icon.svg" alt="Built-in perks you'll actually use" />`
-        };
-
-        // Replace any remaining phone <picture> with its icon, then make sure
-        var apply = function () {
-            Array.prototype.slice.call(section.querySelectorAll('picture')).forEach(function (pic) {
-                var img = pic.querySelector('img');
-                var alt = ((img && img.getAttribute('alt')) || '').toLowerCase();
-
-                var icon;
-                if (alt.indexOf('autopilot') !== -1) icon = icons.autopilot;
-                else if (alt.indexOf('perks') !== -1) icon = icons.perks;
-                else if (alt.indexOf('everyday') !== -1 || alt.indexOf('cashback') !== -1) icon = icons.cashback;
-
-                if (icon) pic.outerHTML = icon;
-            });
-
-            Array.prototype.slice.call(section.querySelectorAll('.cashback-earned-point__icon')).forEach(function (icon) {
-                var wrap = icon.parentElement;
-                if (wrap && !wrap.classList.contains('cashback-earned-point__icon-wrap')) {
-                    wrap.classList.add('cashback-earned-point__icon-wrap');
-                }
-            });
-        };
-
-        apply();
-
-        if (window.MutationObserver) {
-            new MutationObserver(apply).observe(section, {
-                subtree: true,
-                childList: true,
-                attributes: true,
-                attributeFilter: ['class']
-            });
-        }
     },
 
     // Find the existing "Award-winning lender" section on the page
