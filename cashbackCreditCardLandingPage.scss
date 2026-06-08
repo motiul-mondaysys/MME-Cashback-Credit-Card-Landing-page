@@ -1,723 +1,894 @@
-#__nuxt {
-  header.wrap-header + div + div,
+.remap-cashback-landing{
+  header.wrap-header + div + div.relative,
   #spyRatesAndFees + section.container,
-  section.cashback-earned-point {
+  .rewards-compare + section,
+  div.remap-perks-use + div + div {
     display: none;
   }
-}
 
-/*_____Cashback hero section_____*/
-.cashback-hero {
-  background: linear-gradient(180deg, #F5FCE1 0%, #FFF 100%);
-  .container{ column-gap: 80px; align-items: center;}
-  .cashback-hero__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    box-shadow: 0 1px 3px rgba(15, 33, 55, 0.08);
-    border-radius: 10px;
-    border: 1px solid #DADFDF;
-    background: #FFF;
-    color: #000; 
-    font-size: 16px; 
-    font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: -0.48px;
+
+  header.wrap-header + div + div.custom-banner {
+    display: block;
   }
 
-  .cashback-hero__badge-icon {
-    flex-shrink: 0;
+  .award-winning-section-bottom{
+    display: none;
   }
 
-  .cashback-hero__title {
-    color: #0B2828;
-    font-size: 55px;
-    font-weight: 600;
-    line-height: 1.2em;
-    letter-spacing: -1.1px;
-  }
+  /*_____Cashback hero section_____*/
+  .cashback-hero {
+    background: linear-gradient(180deg, #F5FCE1 0%, #FFF 100%);
 
-  .cashback-hero__subtitle {
-    color: rgba(11, 40, 40, 0.60);
-    font-size: 35px;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.525px;
-
-    sup {
-      font-size: 0.6em;
+    .container {
+      column-gap: 80px;
+      align-items: center;
     }
-  }
 
-  .cashback-hero__rating {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: #0B2828;
-  }
-
-  .cashback-hero__stars {
-    display: inline-flex;
-    gap: 2px;
-  }
-  .cashback-hero__rating-score {
-    font-size: 18px;
-    font-weight: 500;
-  }
-  .cashback-hero__media-img{ border-radius: 24px;}
-}
-
-.finder-verified {
-  
-  .container { 
-    column-gap: 33px; 
-    align-items: center; 
-    padding: 24px 23px;
-    border-radius: 12px;
-    max-width: 845px;
-    background:  #E9EFFE;
-    grid-template-columns: 5fr 7fr;
-  }
-
-  .finder-verified__text {
-    color: #313131;
-    font-size: 23px;
-    font-weight: 500;
-    line-height: 1.3;
-    letter-spacing: -0.345px;
-  }
-}
-
-/*____Cashback features section____*/
-.cashback-features {
-  .cashback-features__grid {
-    gap: 32px;
-  }
-
-  .cashback-features__icon {
-    margin-bottom: 5px;
-  }
-
-  .cashback-features__title {
-    color: #0B2828;
-    font-size: 35px;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.7px;
-  }
-
-  .cashback-features__text {
-    color: #313131;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.6;
-    margin: 16px 0;
-  }
-
-  .cashback-features__link {
-    display: inline-flex; 
-    align-items: center;
-    gap: 10px;
-    color: #313131;
-    font-size: 18px;
-    text-decoration: underline;
-
-    &:hover { text-decoration: none; }
-
-    svg { flex-shrink: 0; }
-  }
-
-  .cashback-cta-wrap {
-    margin-top: 64px;
-  }
-}
-
-/*____Reward compare section____*/
-.rewards-compare {
-  .rewards-compare__title {
-    color: #0B2828;
-    font-size: 44px;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.66px;
-    margin-bottom: 56px;
-  }
-
-  .rewards-compare__grid {
-    column-gap: 24px;
-    row-gap: 24px;
-  }
-
-  .rewards-compare__card {
-    padding: 40px;
-    border-radius: 24px;
-  }
-
-  .rewards-compare__card--airline {
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: #4D4D4D;
-
-    .rewards-compare__card-title { color: #FFF; }
-
-    .rewards-compare__list li {
-      color: #FFF;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
-
-      &::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10.0805 19.4742C4.89887 19.4742 0.683594 15.2589 0.683594 10.0805C0.683594 4.90208 4.89887 0.683594 10.0805 0.683594C15.2621 0.683594 19.4774 4.89887 19.4774 10.0805C19.4774 15.2621 15.2621 19.4774 10.0805 19.4774V19.4742Z' fill='%23FFC280'/%3E%3Cpath d='M10.0017 20C4.48659 20 0 15.5134 0 10.0017C0 4.90005 3.81685 0.628737 8.8775 0.0615069C9.24654 0.0205023 9.62583 0 10.0017 0C10.3776 0 10.6851 0.307535 10.6851 0.68341C10.6851 1.05929 10.3776 1.36682 10.0017 1.36682C9.67709 1.36682 9.35247 1.38391 9.03127 1.42149C4.66086 1.91013 1.36682 5.59713 1.36682 10.0017C1.36682 14.7617 5.23834 18.6366 10.0017 18.6366C12.5884 18.6366 15.0179 17.4919 16.665 15.4929C17.198 14.8471 17.632 14.1295 17.9566 13.3607C18.4077 12.298 18.6366 11.1669 18.6366 10.0017C18.6366 6.52657 16.5693 3.4068 13.3709 2.05023C13.0224 1.9033 12.8618 1.50009 13.0087 1.15496C13.1556 0.806424 13.5554 0.645823 13.904 0.792756C17.6081 2.3646 20.0034 5.97984 20.0034 10.0051C20.0034 11.3549 19.7403 12.6636 19.2175 13.8971C18.8416 14.7856 18.3359 15.6159 17.7208 16.3643C15.8141 18.6776 12.9985 20.0034 10.0051 20.0034L10.0017 20Z' fill='white'/%3E%3Cpath d='M10.0017 20C4.48659 20 0 15.5134 0 10.0017C0 4.90005 3.81685 0.628737 8.8775 0.0615069C9.24654 0.0205023 9.62583 0 10.0017 0C10.3776 0 10.6851 0.307535 10.6851 0.68341C10.6851 1.05929 10.3776 1.36682 10.0017 1.36682C9.67709 1.36682 9.35247 1.38391 9.03127 1.42149C4.66086 1.91013 1.36682 5.59713 1.36682 10.0017C1.36682 14.7617 5.23834 18.6366 10.0017 18.6366C12.5884 18.6366 15.0179 17.4919 16.665 15.4929C17.198 14.8471 17.632 14.1295 17.9566 13.3607C18.4077 12.298 18.6366 11.1669 18.6366 10.0017C18.6366 6.52657 16.5693 3.4068 13.3709 2.05023C13.0224 1.9033 12.8618 1.50009 13.0087 1.15496C13.1556 0.806424 13.5554 0.645823 13.904 0.792756C17.6081 2.3646 20.0034 5.97984 20.0034 10.0051C20.0034 11.3549 19.7403 12.6636 19.2175 13.8971C18.8416 14.7856 18.3359 15.6159 17.7208 16.3643C15.8141 18.6776 12.9985 20.0034 10.0051 20.0034L10.0017 20Z' fill='%230B2828' fill-opacity='0.8'/%3E%3Cpath d='M6.66681 14.0237C6.49254 14.0237 6.31827 13.9588 6.185 13.8255C5.91847 13.559 5.91847 13.125 6.185 12.8585L12.8517 6.18159C13.1182 5.91506 13.5522 5.91506 13.8187 6.18159C14.0852 6.44812 14.0852 6.88208 13.8187 7.14861L7.15203 13.8255C7.01877 13.9588 6.8445 14.0271 6.66681 14.0271V14.0237Z' fill='white'/%3E%3Cpath d='M6.66681 14.0237C6.49254 14.0237 6.31827 13.9588 6.185 13.8255C5.91847 13.559 5.91847 13.125 6.185 12.8585L12.8517 6.18159C13.1182 5.91506 13.5522 5.91506 13.8187 6.18159C14.0852 6.44812 14.0852 6.88208 13.8187 7.14861L7.15203 13.8255C7.01877 13.9588 6.8445 14.0271 6.66681 14.0271V14.0237Z' fill='%230B2828' fill-opacity='0.8'/%3E%3Cpath d='M13.3335 14.0237C13.1592 14.0237 12.9849 13.9554 12.8483 13.8221L6.18159 7.14519C5.91506 6.87866 5.91506 6.4447 6.18159 6.17817C6.44812 5.91164 6.88208 5.91164 7.14861 6.17817L13.8153 12.8551C14.0818 13.1216 14.0818 13.5556 13.8153 13.8221C13.682 13.9554 13.5077 14.0203 13.3335 14.0203V14.0237Z' fill='white'/%3E%3Cpath d='M13.3335 14.0237C13.1592 14.0237 12.9849 13.9554 12.8483 13.8221L6.18159 7.14519C5.91506 6.87866 5.91506 6.4447 6.18159 6.17817C6.44812 5.91164 6.88208 5.91164 7.14861 6.17817L13.8153 12.8551C14.0818 13.1216 14.0818 13.5556 13.8153 13.8221C13.682 13.9554 13.5077 14.0203 13.3335 14.0203V14.0237Z' fill='%230B2828' fill-opacity='0.8'/%3E%3C/svg%3E");
-      }
+    .cashback-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      box-shadow: 0 1px 3px rgba(15, 33, 55, 0.08);
+      border-radius: 10px;
+      border: 1px solid #DADFDF;
+      background: #FFF;
+      color: #000;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.48px;
     }
-  }
 
-  .rewards-compare__card--cashback {
-    border: 1px solid #BE0;
-    background: #DDF780;
+    .cashback-hero__badge-icon {
+      flex-shrink: 0;
+    }
 
-    .rewards-compare__card-title { color: #0B2828; }
-
-    .rewards-compare__list li {
+    .cashback-hero__title {
       color: #0B2828;
-      border-bottom: 1px solid rgba(11, 40, 40, 0.15);
+      font-size: 55px;
+      font-weight: 600;
+      line-height: 1.2em;
+      letter-spacing: -1.1px;
+    }
 
-      &::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10.0018 1.36701C9.67721 1.36701 9.35259 1.3841 9.03139 1.42169C4.66098 1.91032 1.36694 5.59732 1.36694 10.0019C1.36694 14.7619 5.23846 18.6368 10.0018 18.6368C12.5885 18.6368 15.0146 17.4921 16.6651 15.4931C17.1981 14.8473 17.6321 14.1297 17.9601 13.3609C18.4112 12.2947 18.6367 11.1671 18.6367 10.0019C18.6367 6.52676 16.5694 3.40699 13.371 2.05042C13.0328 1.90691 12.8722 1.52078 12.9986 1.18249C12.2639 0.933047 11.4882 0.772445 10.6818 0.714355C10.6682 1.07998 10.3709 1.37043 10.0018 1.37043V1.36701ZM13.4052 6.30807C13.641 6.0142 14.0715 5.96295 14.3654 6.19872C14.6593 6.4345 14.7105 6.86505 14.4748 7.15891L9.64646 13.2208C9.35259 13.583 8.94938 13.7914 8.49491 13.8324C8.44707 13.8358 8.39923 13.8392 8.3514 13.8392C7.92426 13.8392 7.50738 13.6821 7.18618 13.4019L5.42982 11.8608C5.1462 11.6113 5.11887 11.1808 5.36831 10.8972C5.61775 10.6136 6.0483 10.5862 6.33192 10.8357L8.08828 12.3768C8.16688 12.4451 8.2728 12.4827 8.38215 12.4758C8.44024 12.4724 8.51883 12.4519 8.57692 12.3802L13.4086 6.3149L13.4052 6.30807Z' fill='%23DDF780'/%3E%3Cpath d='M13.9006 0.789338C13.5554 0.642405 13.1522 0.803006 13.0053 1.15155C13.0019 1.1618 13.0019 1.16863 12.9985 1.17888C12.8686 1.52059 13.0292 1.9033 13.3709 2.04681C16.5693 3.40338 18.6366 6.52315 18.6366 9.99829C18.6366 11.1635 18.4077 12.2945 17.96 13.3573C17.6354 14.1261 17.2014 14.8437 16.665 15.4895C15.0179 17.4851 12.5884 18.6332 10.0017 18.6332C5.24176 18.6332 1.36682 14.7617 1.36682 9.99829C1.36682 5.59371 4.66086 1.90671 9.03127 1.41808C9.35247 1.3839 9.68051 1.3634 10.0017 1.3634C10.3708 1.3634 10.668 1.07295 10.6817 0.707329C10.6817 0.697078 10.6817 0.690243 10.6817 0.679992C10.6817 0.304117 10.3742 -0.00341797 9.99829 -0.00341797C9.62242 -0.00341797 9.24654 0.0170843 8.87408 0.058089C3.81685 0.628736 0 4.90005 0 10.0017C0 15.5168 4.48659 20.0034 10.0017 20.0034C12.9985 20.0034 15.8107 18.6776 17.7174 16.3643C18.3359 15.6159 18.8382 14.7856 19.2141 13.8937C19.7369 12.6602 20 11.3514 20 10.0017C20 5.97642 17.6046 2.36118 13.9006 0.789338Z' fill='%230B2828' fill-opacity='0.8'/%3E%3Cpath d='M8.37871 12.4723C8.26936 12.4792 8.16343 12.445 8.08484 12.3732L6.32848 10.8321C6.04486 10.5827 5.61431 10.61 5.36487 10.8937C5.11542 11.1773 5.14276 11.6078 5.42637 11.8573L7.18274 13.3984C7.50394 13.682 7.92424 13.8357 8.34795 13.8357C8.39579 13.8357 8.44363 13.8357 8.49147 13.8289C8.94594 13.7913 9.34915 13.5795 9.64301 13.2173L14.4713 7.1554C14.7071 6.86154 14.6592 6.43099 14.362 6.19521C14.0681 5.95943 13.6375 6.00727 13.4018 6.30456L8.57006 12.3698C8.51197 12.4416 8.43338 12.4621 8.37529 12.4655L8.37871 12.4723Z' fill='%230B2828' fill-opacity='0.8'/%3E%3C/svg%3E");
+    .cashback-hero__subtitle {
+      color: rgba(11, 40, 40, 0.60);
+      font-size: 35px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.525px;
+
+      sup {
+        font-size: 0.6em;
       }
+    }
+
+    .cashback-hero__rating {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #0B2828;
+    }
+
+    .cashback-hero__stars {
+      display: inline-flex;
+      gap: 2px;
+    }
+
+    .cashback-hero__rating-score {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .cashback-hero__media-img {
+      border-radius: 24px;
     }
   }
 
-  .rewards-compare__card-title {
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 1.3; 
-    letter-spacing: -0.42px;
-    padding-bottom: 18px;
-    margin-bottom: 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  .finder-verified {
+
+    .container {
+      column-gap: 33px;
+      align-items: center;
+      padding: 24px 23px;
+      border-radius: 12px;
+      max-width: 845px;
+      background: #E9EFFE;
+      grid-template-columns: 5fr 7fr;
+    }
+
+    .finder-verified__text {
+      color: #313131;
+      font-size: 23px;
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.345px;
+    }
   }
 
-  .rewards-compare__card--cashback .rewards-compare__card-title {
-    border-bottom-color: rgba(11, 40, 40, 0.12);
+  /*____Cashback features section____*/
+  .cashback-features {
+    .cashback-features__grid {
+      gap: 32px;
+    }
+
+    .cashback-features__icon {
+      margin-bottom: 5px;
+    }
+
+    .cashback-features__title {
+      color: #0B2828;
+      font-size: 35px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.7px;
+    }
+
+    .cashback-features__text {
+      color: #313131;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      margin: 16px 0;
+    }
+
+    .cashback-features__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #313131;
+      font-size: 18px;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      svg {
+        flex-shrink: 0;
+      }
+    }
+
+    .cashback-cta-wrap {
+      margin-top: 64px;
+    }
   }
 
-  .rewards-compare__list {
+  .award-winning-section {
+    transform: unset !important;
+  }
+
+  /*____Reward compare section____*/
+  .rewards-compare {
+    .rewards-compare__title {
+      color: #0B2828;
+      font-size: 44px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.66px;
+      margin-bottom: 56px;
+    }
+
+    .rewards-compare__grid {
+      column-gap: 24px;
+      row-gap: 24px;
+    }
+
+    .rewards-compare__card {
+      padding: 40px;
+      border-radius: 24px;
+    }
+
+    .rewards-compare__card--airline {
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: #4D4D4D;
+
+      .rewards-compare__card-title {
+        color: #FFF;
+      }
+
+      .rewards-compare__list li {
+        color: #FFF;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+        &::before {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10.0805 19.4742C4.89887 19.4742 0.683594 15.2589 0.683594 10.0805C0.683594 4.90208 4.89887 0.683594 10.0805 0.683594C15.2621 0.683594 19.4774 4.89887 19.4774 10.0805C19.4774 15.2621 15.2621 19.4774 10.0805 19.4774V19.4742Z' fill='%23FFC280'/%3E%3Cpath d='M10.0017 20C4.48659 20 0 15.5134 0 10.0017C0 4.90005 3.81685 0.628737 8.8775 0.0615069C9.24654 0.0205023 9.62583 0 10.0017 0C10.3776 0 10.6851 0.307535 10.6851 0.68341C10.6851 1.05929 10.3776 1.36682 10.0017 1.36682C9.67709 1.36682 9.35247 1.38391 9.03127 1.42149C4.66086 1.91013 1.36682 5.59713 1.36682 10.0017C1.36682 14.7617 5.23834 18.6366 10.0017 18.6366C12.5884 18.6366 15.0179 17.4919 16.665 15.4929C17.198 14.8471 17.632 14.1295 17.9566 13.3607C18.4077 12.298 18.6366 11.1669 18.6366 10.0017C18.6366 6.52657 16.5693 3.4068 13.3709 2.05023C13.0224 1.9033 12.8618 1.50009 13.0087 1.15496C13.1556 0.806424 13.5554 0.645823 13.904 0.792756C17.6081 2.3646 20.0034 5.97984 20.0034 10.0051C20.0034 11.3549 19.7403 12.6636 19.2175 13.8971C18.8416 14.7856 18.3359 15.6159 17.7208 16.3643C15.8141 18.6776 12.9985 20.0034 10.0051 20.0034L10.0017 20Z' fill='white'/%3E%3Cpath d='M10.0017 20C4.48659 20 0 15.5134 0 10.0017C0 4.90005 3.81685 0.628737 8.8775 0.0615069C9.24654 0.0205023 9.62583 0 10.0017 0C10.3776 0 10.6851 0.307535 10.6851 0.68341C10.6851 1.05929 10.3776 1.36682 10.0017 1.36682C9.67709 1.36682 9.35247 1.38391 9.03127 1.42149C4.66086 1.91013 1.36682 5.59713 1.36682 10.0017C1.36682 14.7617 5.23834 18.6366 10.0017 18.6366C12.5884 18.6366 15.0179 17.4919 16.665 15.4929C17.198 14.8471 17.632 14.1295 17.9566 13.3607C18.4077 12.298 18.6366 11.1669 18.6366 10.0017C18.6366 6.52657 16.5693 3.4068 13.3709 2.05023C13.0224 1.9033 12.8618 1.50009 13.0087 1.15496C13.1556 0.806424 13.5554 0.645823 13.904 0.792756C17.6081 2.3646 20.0034 5.97984 20.0034 10.0051C20.0034 11.3549 19.7403 12.6636 19.2175 13.8971C18.8416 14.7856 18.3359 15.6159 17.7208 16.3643C15.8141 18.6776 12.9985 20.0034 10.0051 20.0034L10.0017 20Z' fill='%230B2828' fill-opacity='0.8'/%3E%3Cpath d='M6.66681 14.0237C6.49254 14.0237 6.31827 13.9588 6.185 13.8255C5.91847 13.559 5.91847 13.125 6.185 12.8585L12.8517 6.18159C13.1182 5.91506 13.5522 5.91506 13.8187 6.18159C14.0852 6.44812 14.0852 6.88208 13.8187 7.14861L7.15203 13.8255C7.01877 13.9588 6.8445 14.0271 6.66681 14.0271V14.0237Z' fill='white'/%3E%3Cpath d='M6.66681 14.0237C6.49254 14.0237 6.31827 13.9588 6.185 13.8255C5.91847 13.559 5.91847 13.125 6.185 12.8585L12.8517 6.18159C13.1182 5.91506 13.5522 5.91506 13.8187 6.18159C14.0852 6.44812 14.0852 6.88208 13.8187 7.14861L7.15203 13.8255C7.01877 13.9588 6.8445 14.0271 6.66681 14.0271V14.0237Z' fill='%230B2828' fill-opacity='0.8'/%3E%3Cpath d='M13.3335 14.0237C13.1592 14.0237 12.9849 13.9554 12.8483 13.8221L6.18159 7.14519C5.91506 6.87866 5.91506 6.4447 6.18159 6.17817C6.44812 5.91164 6.88208 5.91164 7.14861 6.17817L13.8153 12.8551C14.0818 13.1216 14.0818 13.5556 13.8153 13.8221C13.682 13.9554 13.5077 14.0203 13.3335 14.0203V14.0237Z' fill='white'/%3E%3Cpath d='M13.3335 14.0237C13.1592 14.0237 12.9849 13.9554 12.8483 13.8221L6.18159 7.14519C5.91506 6.87866 5.91506 6.4447 6.18159 6.17817C6.44812 5.91164 6.88208 5.91164 7.14861 6.17817L13.8153 12.8551C14.0818 13.1216 14.0818 13.5556 13.8153 13.8221C13.682 13.9554 13.5077 14.0203 13.3335 14.0203V14.0237Z' fill='%230B2828' fill-opacity='0.8'/%3E%3C/svg%3E");
+        }
+      }
+    }
+
+    .rewards-compare__card--cashback {
+      border: 1px solid #BE0;
+      background: #DDF780;
+
+      .rewards-compare__card-title {
+        color: #0B2828;
+      }
+
+      .rewards-compare__list li {
+        color: #0B2828;
+        border-bottom: 1px solid rgba(11, 40, 40, 0.15);
+
+        &::before {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10.0018 1.36701C9.67721 1.36701 9.35259 1.3841 9.03139 1.42169C4.66098 1.91032 1.36694 5.59732 1.36694 10.0019C1.36694 14.7619 5.23846 18.6368 10.0018 18.6368C12.5885 18.6368 15.0146 17.4921 16.6651 15.4931C17.1981 14.8473 17.6321 14.1297 17.9601 13.3609C18.4112 12.2947 18.6367 11.1671 18.6367 10.0019C18.6367 6.52676 16.5694 3.40699 13.371 2.05042C13.0328 1.90691 12.8722 1.52078 12.9986 1.18249C12.2639 0.933047 11.4882 0.772445 10.6818 0.714355C10.6682 1.07998 10.3709 1.37043 10.0018 1.37043V1.36701ZM13.4052 6.30807C13.641 6.0142 14.0715 5.96295 14.3654 6.19872C14.6593 6.4345 14.7105 6.86505 14.4748 7.15891L9.64646 13.2208C9.35259 13.583 8.94938 13.7914 8.49491 13.8324C8.44707 13.8358 8.39923 13.8392 8.3514 13.8392C7.92426 13.8392 7.50738 13.6821 7.18618 13.4019L5.42982 11.8608C5.1462 11.6113 5.11887 11.1808 5.36831 10.8972C5.61775 10.6136 6.0483 10.5862 6.33192 10.8357L8.08828 12.3768C8.16688 12.4451 8.2728 12.4827 8.38215 12.4758C8.44024 12.4724 8.51883 12.4519 8.57692 12.3802L13.4086 6.3149L13.4052 6.30807Z' fill='%23DDF780'/%3E%3Cpath d='M13.9006 0.789338C13.5554 0.642405 13.1522 0.803006 13.0053 1.15155C13.0019 1.1618 13.0019 1.16863 12.9985 1.17888C12.8686 1.52059 13.0292 1.9033 13.3709 2.04681C16.5693 3.40338 18.6366 6.52315 18.6366 9.99829C18.6366 11.1635 18.4077 12.2945 17.96 13.3573C17.6354 14.1261 17.2014 14.8437 16.665 15.4895C15.0179 17.4851 12.5884 18.6332 10.0017 18.6332C5.24176 18.6332 1.36682 14.7617 1.36682 9.99829C1.36682 5.59371 4.66086 1.90671 9.03127 1.41808C9.35247 1.3839 9.68051 1.3634 10.0017 1.3634C10.3708 1.3634 10.668 1.07295 10.6817 0.707329C10.6817 0.697078 10.6817 0.690243 10.6817 0.679992C10.6817 0.304117 10.3742 -0.00341797 9.99829 -0.00341797C9.62242 -0.00341797 9.24654 0.0170843 8.87408 0.058089C3.81685 0.628736 0 4.90005 0 10.0017C0 15.5168 4.48659 20.0034 10.0017 20.0034C12.9985 20.0034 15.8107 18.6776 17.7174 16.3643C18.3359 15.6159 18.8382 14.7856 19.2141 13.8937C19.7369 12.6602 20 11.3514 20 10.0017C20 5.97642 17.6046 2.36118 13.9006 0.789338Z' fill='%230B2828' fill-opacity='0.8'/%3E%3Cpath d='M8.37871 12.4723C8.26936 12.4792 8.16343 12.445 8.08484 12.3732L6.32848 10.8321C6.04486 10.5827 5.61431 10.61 5.36487 10.8937C5.11542 11.1773 5.14276 11.6078 5.42637 11.8573L7.18274 13.3984C7.50394 13.682 7.92424 13.8357 8.34795 13.8357C8.39579 13.8357 8.44363 13.8357 8.49147 13.8289C8.94594 13.7913 9.34915 13.5795 9.64301 13.2173L14.4713 7.1554C14.7071 6.86154 14.6592 6.43099 14.362 6.19521C14.0681 5.95943 13.6375 6.00727 13.4018 6.30456L8.57006 12.3698C8.51197 12.4416 8.43338 12.4621 8.37529 12.4655L8.37871 12.4723Z' fill='%230B2828' fill-opacity='0.8'/%3E%3C/svg%3E");
+        }
+      }
+    }
+
+    .rewards-compare__card-title {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.42px;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .rewards-compare__card--cashback .rewards-compare__card-title {
+      border-bottom-color: rgba(11, 40, 40, 0.12);
+    }
+
+    .rewards-compare__list {
+      list-style: none;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 13px 0;
+        font-size: 18px;
+        line-height: 1.4;
+        letter-spacing: -0.18px;
+
+        &::before {
+          content: "";
+          flex-shrink: 0;
+          width: 20px;
+          height: 20px;
+          margin-top: 2px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    // VS badge centered between the two cards
+    .rewards-compare__vs {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      display: inline-flex;
+      line-height: 0;
+
+      svg {
+        width: 96px;
+        height: 96px;
+      }
+    }
+
+  }
+
+  /*____Global shared CTA + benefits (used across multiple sections)____*/
+  .cashback-hero__cta {
+    position: relative;
+    display: flex;
+    max-width: 366px;
+    width: 100%;
+    padding: 16px 30px;
+    justify-content: center;
+    align-items: center;
+    color: #0B2828;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    border-radius: 10px;
+    background: #BE0;
+    transition: all 0.4s;
+
+    &:hover {
+      background: #c8f132;
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%);
+      flex-shrink: 0;
+    }
+  }
+
+  .cashback-credit-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     list-style: none;
 
     li {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 13px 0;
-      font-size: 18px;
-      line-height: 1.4;
-      letter-spacing: -0.18px;
+      align-items: center;
+      gap: 5px;
+      color: #313131;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.6;
+      letter-spacing: 0.165px;
 
-      &::before {
-        content: "";
+      svg {
         flex-shrink: 0;
-        width: 20px;
-        height: 20px;
-        margin-top: 2px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-      }
-
-      &:last-child {
-        border-bottom: none;
+        stroke: #939A9C;
       }
     }
   }
 
-  // VS badge centered between the two cards
-  .rewards-compare__vs {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    display: inline-flex;
-    line-height: 0;
-
-    svg {
-      width: 96px;
-      height: 96px;
-    }
-  }
-
-}
-
-/*____Global shared CTA + benefits (used across multiple sections)____*/
-.cashback-hero__cta {
-  position: relative;
-  display: flex;
-  max-width: 366px;
-  width: 100%;
-  padding: 16px 30px;
-  justify-content: center;
-  align-items: center;
-  color: #0B2828;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.2px;
-  border-radius: 10px;
-  background: #BE0;
-  transition: all 0.4s;
-
-  &:hover {
-    background: #c8f132;
-  }
-
-  svg {
-    position: absolute;
-    top: 50%;
-    right: 30px;
-    transform: translateY(-50%);
-    flex-shrink: 0;
-  }
-}
-
-.cashback-credit-benefits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  list-style: none; 
-
-  li {
+  .cashback-cta-wrap {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 5px;
-    color: #313131;
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 1.6;
-    letter-spacing: 0.165px;
+    gap: 20px;
+    margin-top: 64px;
 
-    svg {
-      flex-shrink: 0;
-      stroke: #939A9C;
+    .cashback-credit-benefits {
+      justify-content: center;
     }
   }
-}
-.cashback-cta-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin-top: 64px;
-  .cashback-credit-benefits {
-    justify-content: center;
-  }
-}
 
-/*_____Cashback Earned point_____*/
-.cashback-earned-point {
-  h3 + div.opacity-0 {
+  /*_____Cashback Earned point_____*/
+  .cashback-earned-point {
+    h3 + div.opacity-0 {
       opacity: 1;
       max-height: max-content;
-  }
-  h3 + div.opacity-0 a:last-child {
-    display: none;
-  }
-  [class~="lg:hidden"]{ display: none; }
-  [class~="hidden"][class~="lg:flex"]{ display: flex; }
-  [class~="min-h-[500px]"]{
-    min-height: 400px;
-  }
-  a.underline{
-    font-weight: 400;
-  }
-}
+    }
 
-/*____Perks use section___*/
-#perks-use{
-  .container{ padding-top: 2rem;}
-  .perks-use-content .flex-row > div:first-child{ display: none;}
-  .perks-use-content {
-    padding-top: 22px;
-  }
-  .perks-use-content h3::before{
-    content: "";
-    display: inline-block;
-    flex-shrink: 0;
-    width: 29px;
-    height: 29px;
-    margin-right: 10px;
-    vertical-align: middle;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29' fill='none'%3E%3Cg clip-path='url(%23clip0_11152_8944)'%3E%3Cpath d='M14.5025 1.982C14.0318 1.982 13.5611 2.00677 13.0954 2.06127C6.75829 2.7698 1.98193 8.11595 1.98193 14.5026C1.98193 21.4045 7.59564 27.0232 14.5025 27.0232C18.2532 27.0232 21.7711 25.3633 24.1642 22.4648C24.9372 21.5284 25.5664 20.4879 26.0421 19.3731C26.6961 17.8272 27.0231 16.1921 27.0231 14.5026C27.0231 9.46363 24.0255 4.93997 19.3879 2.97294C18.8974 2.76484 18.6645 2.20496 18.8478 1.71444C17.7825 1.35275 16.6578 1.11987 15.4885 1.03564C15.4687 1.5658 15.0376 1.98695 14.5025 1.98695V1.982ZM19.4374 9.14653C19.7793 8.72042 20.4036 8.6461 20.8297 8.98798C21.2558 9.32985 21.3301 9.95415 20.9883 10.3803L13.9872 19.1699C13.5611 19.6951 12.9765 19.9974 12.3175 20.0568C12.2481 20.0618 12.1788 20.0667 12.1094 20.0667C11.49 20.0667 10.8856 19.8388 10.4198 19.4325L7.8731 17.198C7.46186 16.8363 7.42222 16.212 7.78392 15.8007C8.14561 15.3895 8.76991 15.3498 9.18115 15.7115L11.7279 17.9461C11.8418 18.0452 11.9954 18.0997 12.154 18.0898C12.2382 18.0848 12.3522 18.0551 12.4364 17.9511L19.4424 9.15644L19.4374 9.14653Z' fill='%23DDF780'/%3E%3Cpath d='M20.1558 1.14461C19.6554 0.93156 19.0707 1.16443 18.8577 1.66981C18.8527 1.68468 18.8527 1.69459 18.8478 1.70945C18.6595 2.20492 18.8924 2.75985 19.3878 2.96795C24.0255 4.93498 27.0231 9.45864 27.0231 14.4976C27.0231 16.1872 26.6911 17.8272 26.042 19.3681C25.5713 20.4829 24.9421 21.5234 24.1642 22.4598C21.776 25.3534 18.2532 27.0182 14.5025 27.0182C7.60055 27.0182 1.98189 21.4045 1.98189 14.4976C1.98189 8.11096 6.75824 2.76481 13.0953 2.05628C13.5611 2.00674 14.0367 1.97701 14.5025 1.97701C15.0376 1.97701 15.4686 1.55586 15.4885 1.0257C15.4885 1.01084 15.4885 1.00093 15.4885 0.986062C15.4885 0.441042 15.0425 -0.00488281 14.4975 -0.00488281C13.9525 -0.00488281 13.4075 0.0248455 12.8674 0.0843022C5.53443 0.911741 0 7.10515 0 14.5026C0 22.4995 6.50555 29.005 14.5025 29.005C18.8478 29.005 22.9255 27.0826 25.6902 23.7282C26.587 22.6432 27.3154 21.4392 27.8604 20.146C28.6185 18.3573 29 16.4597 29 14.5026C29 8.66588 25.5267 3.42379 20.1558 1.14461Z' fill='white'/%3E%3Cpath d='M20.1558 1.14461C19.6554 0.93156 19.0707 1.16443 18.8577 1.66981C18.8527 1.68468 18.8527 1.69459 18.8478 1.70945C18.6595 2.20492 18.8924 2.75985 19.3878 2.96795C24.0255 4.93498 27.0231 9.45864 27.0231 14.4976C27.0231 16.1872 26.6911 17.8272 26.042 19.3681C25.5713 20.4829 24.9421 21.5234 24.1642 22.4598C21.776 25.3534 18.2532 27.0182 14.5025 27.0182C7.60055 27.0182 1.98189 21.4045 1.98189 14.4976C1.98189 8.11096 6.75824 2.76481 13.0953 2.05628C13.5611 2.00674 14.0367 1.97701 14.5025 1.97701C15.0376 1.97701 15.4686 1.55586 15.4885 1.0257C15.4885 1.01084 15.4885 1.00093 15.4885 0.986062C15.4885 0.441042 15.0425 -0.00488281 14.4975 -0.00488281C13.9525 -0.00488281 13.4075 0.0248455 12.8674 0.0843022C5.53443 0.911741 0 7.10515 0 14.5026C0 22.4995 6.50555 29.005 14.5025 29.005C18.8478 29.005 22.9255 27.0826 25.6902 23.7282C26.587 22.6432 27.3154 21.4392 27.8604 20.146C28.6185 18.3573 29 16.4597 29 14.5026C29 8.66588 25.5267 3.42379 20.1558 1.14461Z' fill='%230B2828' fill-opacity='0.8'/%3E%3Cpath d='M12.1491 18.0848C11.9905 18.0947 11.8369 18.0452 11.723 17.9411L9.17624 15.7065C8.765 15.3448 8.1407 15.3845 7.77901 15.7957C7.41731 16.207 7.45695 16.8313 7.86819 17.1929L10.4149 19.4275C10.8807 19.8388 11.4901 20.0617 12.1045 20.0617C12.1738 20.0617 12.2432 20.0617 12.3126 20.0518C12.9716 19.9973 13.5562 19.6901 13.9823 19.1649L20.9833 10.3752C21.3252 9.94914 21.2559 9.32485 20.8248 8.98297C20.3987 8.64109 19.7744 8.71046 19.4325 9.14152L12.4265 17.9362C12.3423 18.0402 12.2284 18.0699 12.1441 18.0749L12.1491 18.0848Z' fill='white'/%3E%3Cpath d='M12.1491 18.0848C11.9905 18.0947 11.8369 18.0452 11.723 17.9411L9.17624 15.7065C8.765 15.3448 8.1407 15.3845 7.77901 15.7957C7.41731 16.207 7.45695 16.8313 7.86819 17.1929L10.4149 19.4275C10.8807 19.8388 11.4901 20.0617 12.1045 20.0617C12.1738 20.0617 12.2432 20.0617 12.3126 20.0518C12.9716 19.9973 13.5562 19.6901 13.9823 19.1649L20.9833 10.3752C21.3252 9.94914 21.2559 9.32485 20.8248 8.98297C20.3987 8.64109 19.7744 8.71046 19.4325 9.14152L12.4265 17.9362C12.3423 18.0402 12.2284 18.0699 12.1441 18.0749L12.1491 18.0848Z' fill='%230B2828' fill-opacity='0.8'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_11152_8944'%3E%3Crect width='29' height='29' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
-    display: block;
-    margin-bottom: 12px;
-  }
-  .perks-use-content a{
-    color: rgba(0, 0, 0, 0.70);
-    font-weight: 400;
-    margin-bottom: 25px;
-  } 
-} 
-
-/*___Earn rewards count___*/
-.earn-rewards-count {
-  .earn-rewards-count__cta-wrap + div {
+    h3 + div.opacity-0 a:last-child {
       display: none;
-  } 
-  .cashback-cta-wrap{ margin-top: 32px;}
-  .cashback-credit-benefits li{
-    color: #fff;
-  }
-  .cashback-credit-benefits li svg{ stroke: #ffffff;}
-} 
+    }
 
-/*___Digital card section___*/
-.digital-card {
-  &+ div#spyRatesAndFees {
-    display: none;
-  }
-  .digital-card__grid {
-    column-gap: 80px;
-    row-gap: 32px;
-  }
-
-  .digital-card__title {
-    color: #0B2828;
-    font-size: 44px;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.66px;
-    margin-bottom: 24px;
-  }
-
-  .digital-card__text {
-    color: rgba(11, 40, 40, 0.60);
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 1.4;
-    letter-spacing: -0.33px;
-  }
-
-  .digital-card__media-img {
-    border-radius: 24px;
-  }
-
-  .cashback-cta-wrap {
-    margin-top: 56px;
-  }
-}
-
-/*_____Review___*/
-#spyReviews{
-  background-color: #F5FCD9;
-  padding: 56px 0;
-  & > div.absolute:first-child{ display: none;}
-  .reviews__cta-wrap + div.container {
+    [class~="lg:hidden"] {
       display: none;
-  }
-  .container-narrowed h2{
-    max-width: 460px;
-  }
-  .scroll-animate-slide-right{
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
+    }
 
-/*_____A clearer guide to credit cards_____*/
-.featured-posts {
-  background-color: #F5F5F7; 
-  .featured-posts__title {
-    color: #0B2828;
-    font-size: 44px;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.66px;
-    margin-bottom: 48px;
-  } 
+    [class~="hidden"][class~="lg:flex"] {
+      display: flex;
+    }
 
-  .featured-posts__grid {
-    column-gap: 24px;
-    row-gap: 24px;
-    max-width: 1180px;
-    margin: 0 auto;
-  }
+    [class~="min-h-[500px]"] {
+      min-height: 400px;
+    }
 
-  .featured-post {
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    background: #FFF;
-    overflow: hidden;
-    color: inherit;
-    text-decoration: none;
-    transition: box-shadow 0.3s, transform 0.3s;
-
-    &:hover {
-      box-shadow: 0 8px 32px rgba(11, 40, 40, 0.12);
-      transform: translateY(-4px);
+    a.underline {
+      font-weight: 400;
     }
   }
 
-  .featured-post__media-img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .featured-post__body {
-    padding:16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .featured-post__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .featured-post__tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 10px 6px 8px;
-    border-radius: 4px;
-    background: #DDF780;
-    color:  #0B2828;
-    font-size: 16px;
-    font-weight: 500;
-
-    svg,
-    img {
-      flex-shrink: 0;
-    }
-  }
-
-  .featured-post__title {
-    color: #313131;
-    font-size: 23px;
-    font-weight: 500;
-    line-height: 1.25;
-    letter-spacing: -0.345px;
-  } 
-
-  .featured-post__meta { 
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #313131;
-    font-size: 12px;
-  }
-
-  .featured-post__avatar {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .featured-post__date,
-  .featured-post__read {
-    padding-left: 11px;
-    border-left: 1px solid rgba(11, 40, 40, 0.20);
-    color: rgba(11, 40, 40, 0.70);
-    font-weight: 400;
-  }
-}  
-
-/*______FAQ's_____*/ 
-.faq-section {
-  button.btn-border {
-      margin-left: auto;
-      margin-right: auto;
-  }
-  ul li > a{ font-size: 19px; font-weight: 600; border-color:  #D2D2D2;}
-}
-.remap-breadcrumb{
-  background-color: transparent;
-  li * {
-    color: #313131;
-  }
-  li a:hover{ text-decoration: underline;}
-}
-
-/*=====================================================================
-  MOBILE (max-width: 768px) — Figma mobile type scale: H1 40 / H3 28 /
-  body 16 / hyperlink 18 / CTA 20. Desktop styles above are untouched.
-=====================================================================*/
-@media (max-width: 991px) {
-
-  .cashback-cta-wrap {
-    margin-top: 40px;
-    .cashback-hero__cta { margin-left: auto; margin-right: auto; }
-  }
-  .cashback-credit-benefits{
-    column-gap: 10px;
-    row-gap: 4px;
-    li{
-      gap: 1px;
-      font-size: 11px;
-    }
-  }
-  .earn-rewards-count > div > div {
-      padding-top: 100px;
-      padding-bottom: 100px;
-  }
-  /*___Hero___ (Figma mobile: centered; order badge > image > title > subtitle > CTA > benefits > rating) */
-  .cashback-hero {
-    padding-top: 100px;
-    padding-bottom: 0;
+  /*____Perks use section___*/
+  .remap-perks-use{
     .container {
+      padding-top: 2rem;
+    }
+
+    .perks-use-content .flex-row > div:first-child {
+      display: none;
+    }
+
+    .perks-use-content {
+      padding-top: 22px;
+    }
+
+    .perks-use-content h3::before {
+      content: "";
+      display: inline-block;
+      flex-shrink: 0;
+      width: 29px;
+      height: 29px;
+      margin-right: 10px;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29' fill='none'%3E%3Cg clip-path='url(%23clip0_11152_8944)'%3E%3Cpath d='M14.5025 1.982C14.0318 1.982 13.5611 2.00677 13.0954 2.06127C6.75829 2.7698 1.98193 8.11595 1.98193 14.5026C1.98193 21.4045 7.59564 27.0232 14.5025 27.0232C18.2532 27.0232 21.7711 25.3633 24.1642 22.4648C24.9372 21.5284 25.5664 20.4879 26.0421 19.3731C26.6961 17.8272 27.0231 16.1921 27.0231 14.5026C27.0231 9.46363 24.0255 4.93997 19.3879 2.97294C18.8974 2.76484 18.6645 2.20496 18.8478 1.71444C17.7825 1.35275 16.6578 1.11987 15.4885 1.03564C15.4687 1.5658 15.0376 1.98695 14.5025 1.98695V1.982ZM19.4374 9.14653C19.7793 8.72042 20.4036 8.6461 20.8297 8.98798C21.2558 9.32985 21.3301 9.95415 20.9883 10.3803L13.9872 19.1699C13.5611 19.6951 12.9765 19.9974 12.3175 20.0568C12.2481 20.0618 12.1788 20.0667 12.1094 20.0667C11.49 20.0667 10.8856 19.8388 10.4198 19.4325L7.8731 17.198C7.46186 16.8363 7.42222 16.212 7.78392 15.8007C8.14561 15.3895 8.76991 15.3498 9.18115 15.7115L11.7279 17.9461C11.8418 18.0452 11.9954 18.0997 12.154 18.0898C12.2382 18.0848 12.3522 18.0551 12.4364 17.9511L19.4424 9.15644L19.4374 9.14653Z' fill='%23DDF780'/%3E%3Cpath d='M20.1558 1.14461C19.6554 0.93156 19.0707 1.16443 18.8577 1.66981C18.8527 1.68468 18.8527 1.69459 18.8478 1.70945C18.6595 2.20492 18.8924 2.75985 19.3878 2.96795C24.0255 4.93498 27.0231 9.45864 27.0231 14.4976C27.0231 16.1872 26.6911 17.8272 26.042 19.3681C25.5713 20.4829 24.9421 21.5234 24.1642 22.4598C21.776 25.3534 18.2532 27.0182 14.5025 27.0182C7.60055 27.0182 1.98189 21.4045 1.98189 14.4976C1.98189 8.11096 6.75824 2.76481 13.0953 2.05628C13.5611 2.00674 14.0367 1.97701 14.5025 1.97701C15.0376 1.97701 15.4686 1.55586 15.4885 1.0257C15.4885 1.01084 15.4885 1.00093 15.4885 0.986062C15.4885 0.441042 15.0425 -0.00488281 14.4975 -0.00488281C13.9525 -0.00488281 13.4075 0.0248455 12.8674 0.0843022C5.53443 0.911741 0 7.10515 0 14.5026C0 22.4995 6.50555 29.005 14.5025 29.005C18.8478 29.005 22.9255 27.0826 25.6902 23.7282C26.587 22.6432 27.3154 21.4392 27.8604 20.146C28.6185 18.3573 29 16.4597 29 14.5026C29 8.66588 25.5267 3.42379 20.1558 1.14461Z' fill='white'/%3E%3Cpath d='M20.1558 1.14461C19.6554 0.93156 19.0707 1.16443 18.8577 1.66981C18.8527 1.68468 18.8527 1.69459 18.8478 1.70945C18.6595 2.20492 18.8924 2.75985 19.3878 2.96795C24.0255 4.93498 27.0231 9.45864 27.0231 14.4976C27.0231 16.1872 26.6911 17.8272 26.042 19.3681C25.5713 20.4829 24.9421 21.5234 24.1642 22.4598C21.776 25.3534 18.2532 27.0182 14.5025 27.0182C7.60055 27.0182 1.98189 21.4045 1.98189 14.4976C1.98189 8.11096 6.75824 2.76481 13.0953 2.05628C13.5611 2.00674 14.0367 1.97701 14.5025 1.97701C15.0376 1.97701 15.4686 1.55586 15.4885 1.0257C15.4885 1.01084 15.4885 1.00093 15.4885 0.986062C15.4885 0.441042 15.0425 -0.00488281 14.4975 -0.00488281C13.9525 -0.00488281 13.4075 0.0248455 12.8674 0.0843022C5.53443 0.911741 0 7.10515 0 14.5026C0 22.4995 6.50555 29.005 14.5025 29.005C18.8478 29.005 22.9255 27.0826 25.6902 23.7282C26.587 22.6432 27.3154 21.4392 27.8604 20.146C28.6185 18.3573 29 16.4597 29 14.5026C29 8.66588 25.5267 3.42379 20.1558 1.14461Z' fill='%230B2828' fill-opacity='0.8'/%3E%3Cpath d='M12.1491 18.0848C11.9905 18.0947 11.8369 18.0452 11.723 17.9411L9.17624 15.7065C8.765 15.3448 8.1407 15.3845 7.77901 15.7957C7.41731 16.207 7.45695 16.8313 7.86819 17.1929L10.4149 19.4275C10.8807 19.8388 11.4901 20.0617 12.1045 20.0617C12.1738 20.0617 12.2432 20.0617 12.3126 20.0518C12.9716 19.9973 13.5562 19.6901 13.9823 19.1649L20.9833 10.3752C21.3252 9.94914 21.2559 9.32485 20.8248 8.98297C20.3987 8.64109 19.7744 8.71046 19.4325 9.14152L12.4265 17.9362C12.3423 18.0402 12.2284 18.0699 12.1441 18.0749L12.1491 18.0848Z' fill='white'/%3E%3Cpath d='M12.1491 18.0848C11.9905 18.0947 11.8369 18.0452 11.723 17.9411L9.17624 15.7065C8.765 15.3448 8.1407 15.3845 7.77901 15.7957C7.41731 16.207 7.45695 16.8313 7.86819 17.1929L10.4149 19.4275C10.8807 19.8388 11.4901 20.0617 12.1045 20.0617C12.1738 20.0617 12.2432 20.0617 12.3126 20.0518C12.9716 19.9973 13.5562 19.6901 13.9823 19.1649L20.9833 10.3752C21.3252 9.94914 21.2559 9.32485 20.8248 8.98297C20.3987 8.64109 19.7744 8.71046 19.4325 9.14152L12.4265 17.9362C12.3423 18.0402 12.2284 18.0699 12.1441 18.0749L12.1491 18.0848Z' fill='%230B2828' fill-opacity='0.8'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_11152_8944'%3E%3Crect width='29' height='29' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .perks-use-content a {
+      color: rgba(0, 0, 0, 0.70);
+      font-weight: 400;
+      margin-bottom: 25px;
+    }
+  }
+
+  /*___Earn rewards count___*/
+  .earn-rewards-count {
+    .earn-rewards-count__cta-wrap + div {
+      display: none;
+    }
+
+    .cashback-cta-wrap {
+      margin-top: 32px;
+    }
+
+    .cashback-credit-benefits li {
+      color: #fff;
+    }
+
+    .cashback-credit-benefits li svg {
+      stroke: #ffffff;
+    }
+  }
+
+  /*___Digital card section___*/
+  .digital-card {
+    & + div#spyRatesAndFees {
+      display: none;
+    }
+
+    .digital-card__grid {
+      column-gap: 80px;
+      row-gap: 32px;
+    }
+
+    .digital-card__title {
+      color: #0B2828;
+      font-size: 44px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.66px;
+      margin-bottom: 24px;
+    }
+
+    .digital-card__text {
+      color: rgba(11, 40, 40, 0.60);
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.4;
+      letter-spacing: -0.33px;
+    }
+
+    .digital-card__media-img {
+      border-radius: 24px;
+    }
+
+    .cashback-cta-wrap {
+      margin-top: 56px;
+    }
+  }
+
+  /*_____Review___*/
+  .remap-spy-reviews {
+    background-color: #F5FCD9;
+    padding: 56px 0;
+
+    & > div.absolute:first-child {
+      display: none;
+    }
+
+    & > div > div.container:last-child {
+      display: none;
+    }
+
+    .container-narrowed h2 {
+      max-width: 460px;
+    }
+
+    .scroll-animate-slide-right {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  /*_____A clearer guide to credit cards_____*/
+  .featured-posts {
+    background-color: #F5F5F7;
+
+    .featured-posts__title {
+      color: #0B2828;
+      font-size: 44px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.66px;
+      margin-bottom: 48px;
+    }
+
+    .featured-posts__grid {
+      column-gap: 24px;
+      row-gap: 24px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .featured-post {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      column-gap: 0;
-      row-gap: 24px;
-    } 
+      border-radius: 10px;
+      background: #FFF;
+      overflow: hidden;
+      color: inherit;
+      text-decoration: none;
+      transition: box-shadow 0.3s, transform 0.3s;
 
-    .cashback-hero__content { display: contents; }
-    .cashback-hero__content > * { order: 3; }
-
-    .cashback-hero__badge { order: 1; }
-
-    .cashback-hero__media {
-      order: 2;
-      width: 100%;
-    }
-    .cashback-hero__media-img { width: 100%; }
-
-    .cashback-hero__title,
-    .cashback-hero__subtitle {
-      width: 100%;
-      text-align: center;
-    }
-    .cashback-hero__title {
-      font-size: 40px;
-      letter-spacing: -0.8px;
-      padding: 0;
-    }
-    .cashback-hero__subtitle { font-size: 28px; letter-spacing: -0.42px; }
-
-    .cashback-hero__cta {
-      margin-top: 0 !important;
-    }
-
-    .cashback-credit-benefits { 
-      justify-content: center; 
-      padding: 0;
-      margin-top: -8px;
-      margin-bottom: -12px;
-    }
-    .cashback-hero__rating { flex-wrap: wrap; justify-content: center; }
-  }
-
-  /*___Finder___*/
-  .finder-verified {
-    .container {
-      grid-template-columns: 1fr;
-      row-gap: 24px;
-      padding: 20px;
-      max-width: calc(100vw - 30px) !important;
-      text-align: center;
-    }
-    .finder-verified__text { font-size: 18px; }
-  }
-
-  /*___Cashback features (USPs)___*/
-  .cashback-features {
-    margin-top: 60px;
-    margin-bottom: 50px;
-    .cashback-features__grid{ gap: 40px;}
-    .cashback-features__title { font-size: 28px; letter-spacing: -0.42px; }
-    .cashback-features__text  { font-size: 16px; }
-    .cashback-cta-wrap{ margin-top: 40px;}
-    br { display: none; }
-  }
-
-  /*___Rewards compare (Figma mobile: Cashback/lime card on top, VS, then Airline/dark below)___*/
-  .rewards-compare {
-    & + section#spyRatesAndFees .container{
-      padding-left: 0;
-      padding-right: 0;
-      margin-top: 25px;
-      & > div > div{
-        padding: 56px 20px;
+      &:hover {
+        box-shadow: 0 8px 32px rgba(11, 40, 40, 0.12);
+        transform: translateY(-4px);
       }
     }
-    .rewards-compare__title {
-      font-size: 33px;
-      letter-spacing: -0.495px;
-      margin-bottom: 32px;
+
+    .featured-post__media-img {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      width: 100%;
+      object-fit: cover;
     }
 
-    .rewards-compare__grid { row-gap: 24px; }
-    .rewards-compare__card--cashback { order: -1; }
+    .featured-post__body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-    .rewards-compare__card { padding: 20px; }
-    .rewards-compare__card-title {
+    .featured-post__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .featured-post__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px 6px 8px;
+      border-radius: 4px;
+      background: #DDF780;
+      color: #0B2828;
+      font-size: 16px;
+      font-weight: 500;
+
+      svg,
+      img {
+        flex-shrink: 0;
+      }
+    }
+
+    .featured-post__title {
+      color: #313131;
       font-size: 23px;
+      font-weight: 500;
+      line-height: 1.25;
       letter-spacing: -0.345px;
     }
-    .rewards-compare__list li {
-      font-size: 16px;
-      line-height: 1.6;
-    }
 
-    .rewards-compare__vs svg { width: 80px; height: 80px; }
-  }
-
-  /*____Perks Use___*/
-  #perks-use{
-    .container {
-      padding-top: 30px;
-    }
-    h2{ margin-bottom: -10px;}
-    .perks-use-content a{ margin-bottom:5px;}
-  }
-  
-
-  /*___Digital card___*/
-  .digital-card {
-    margin-top: 56px;
-    margin-bottom: 56px;
-
-    .digital-card__grid { 
-      gap: 32px; 
+    .featured-post__meta {
       display: flex;
-      flex-direction: column-reverse; 
+      align-items: center;
+      gap: 6px;
+      color: #313131;
+      font-size: 12px;
     }
-    .digital-card__title { font-size: 33px; letter-spacing: -0.48px; }
-    .digital-card__text  { font-size: 19px; }
+
+    .featured-post__avatar {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .featured-post__date,
+    .featured-post__read {
+      padding-left: 11px;
+      border-left: 1px solid rgba(11, 40, 40, 0.20);
+      color: rgba(11, 40, 40, 0.70);
+      font-weight: 400;
+    }
   }
 
-  /*____Review____*/
-  #spyReviews {
-    .container-narrowed {
-      margin-bottom: 27px;
+  /*______FAQ's_____*/
+  .faq-section {
+    button.btn-border {
+      margin-left: auto;
+      margin-right: auto;
     }
-    .carousel-container { margin-bottom: 0;}
+
+    ul li > a {
+      font-size: 19px;
+      font-weight: 600;
+      border-color: #D2D2D2;
+    }
   }
 
-  /*___Featured posts (blog)___*/
-  .featured-posts {
-    padding: 56px 0;
-    .featured-posts__grid{ gap: 40px;}
-    .featured-posts__title {
-      font-size: 33px;
-      letter-spacing: -0.48px;
-      margin-bottom: 40px;
+  .remap-breadcrumb {
+    background-color: transparent;
+
+    li * {
+      color: #313131;
+    }
+
+    li a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /*=====================================================================
+    MOBILE (max-width: 768px) — Figma mobile type scale: H1 40 / H3 28 /
+    body 16 / hyperlink 18 / CTA 20. Desktop styles above are untouched.
+  =====================================================================*/
+  @media (max-width: 991px) {
+
+    .cashback-cta-wrap {
+      margin-top: 40px;
+
+      .cashback-hero__cta {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    .cashback-credit-benefits {
+      column-gap: 10px;
+      row-gap: 4px;
+
+      li {
+        gap: 1px;
+        font-size: 11px;
+      }
+    }
+    .earn-rewards-count > div > div {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    /*___Hero___ (Figma mobile: centered; order badge > image > title > subtitle > CTA > benefits > rating) */
+    .cashback-hero {
+      padding-top: 100px;
+      padding-bottom: 0;
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        column-gap: 0;
+        row-gap: 24px;
+      }
+
+      .cashback-hero__content {
+        display: contents;
+      }
+
+      .cashback-hero__content > * {
+        order: 3;
+      }
+
+      .cashback-hero__badge {
+        order: 1;
+      }
+
+      .cashback-hero__media {
+        order: 2;
+        width: 100%;
+      }
+
+      .cashback-hero__media-img {
+        width: 100%;
+      }
+
+      .cashback-hero__title,
+      .cashback-hero__subtitle {
+        width: 100%;
+        text-align: center;
+      }
+
+      .cashback-hero__title {
+        font-size: 40px;
+        letter-spacing: -0.8px;
+        padding: 0;
+      }
+
+      .cashback-hero__subtitle {
+        font-size: 28px;
+        letter-spacing: -0.42px;
+      }
+
+      .cashback-hero__cta {
+        margin-top: 0 !important;
+      }
+
+      .cashback-credit-benefits {
+        justify-content: center;
+        padding: 0;
+        margin-top: -8px;
+        margin-bottom: -12px;
+      }
+
+      .cashback-hero__rating {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    /*___Finder___*/
+    .finder-verified {
+      .container {
+        grid-template-columns: 1fr;
+        row-gap: 24px;
+        padding: 20px;
+        max-width: calc(100vw - 30px) !important;
+        text-align: center;
+      }
+
+      .finder-verified__text {
+        font-size: 18px;
+      }
+    }
+
+    /*___Cashback features (USPs)___*/
+    .cashback-features {
+      margin-top: 60px;
+      margin-bottom: 50px;
+
+      .cashback-features__grid {
+        gap: 40px;
+      }
+
+      .cashback-features__title {
+        font-size: 28px;
+        letter-spacing: -0.42px;
+      }
+
+      .cashback-features__text {
+        font-size: 16px;
+      }
+
+      .cashback-cta-wrap {
+        margin-top: 40px;
+      }
+
+      br {
+        display: none;
+      }
+    }
+
+    /*___Rewards compare (Figma mobile: Cashback/lime card on top, VS, then Airline/dark below)___*/
+    .rewards-compare {
+      .rewards-compare__title {
+        font-size: 33px;
+        letter-spacing: -0.495px;
+        margin-bottom: 32px;
+      }
+
+      .rewards-compare__grid {
+        row-gap: 24px;
+      }
+
+      .rewards-compare__card--cashback {
+        order: -1;
+      }
+
+      .rewards-compare__card {
+        padding: 20px;
+      }
+
+      .rewards-compare__card-title {
+        font-size: 23px;
+        letter-spacing: -0.345px;
+      }
+
+      .rewards-compare__list li {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .rewards-compare__vs svg {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    section#spyRatesAndFees .container {
+        padding-left: 0;
+        padding-right: 0;
+        margin-top: 25px;
+
+        & > div > div {
+          padding: 56px 20px;
+        }
+      }
+
+    /*____Perks Use___*/
+    .remap-perks-use{
+      .container {
+        padding-top: 30px;
+      }
+
+      h2 {
+        margin-bottom: -10px;
+      }
+
+      .perks-use-content a {
+        margin-bottom: 5px;
+      }
+    }
+
+
+    /*___Digital card___*/
+    .digital-card {
+      margin-top: 56px;
+      margin-bottom: 56px;
+
+      .digital-card__grid {
+        gap: 32px;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      .digital-card__title {
+        font-size: 33px;
+        letter-spacing: -0.48px;
+      }
+
+      .digital-card__text {
+        font-size: 19px;
+      }
+    }
+
+    /*____Review____*/
+
+  .remap-spy-reviews{
+      .container-narrowed {
+        margin-bottom: 27px;
+      }
+
+      .carousel-container {
+        margin-bottom: 0;
+      }
+    }
+
+    /*___Featured posts (blog)___*/
+    .featured-posts {
+      padding: 56px 0;
+
+      .featured-posts__grid {
+        gap: 40px;
+      }
+
+      .featured-posts__title {
+        font-size: 33px;
+        letter-spacing: -0.48px;
+        margin-bottom: 40px;
+        text-align: left;
+      }
+
+      .featured-post__title {
+        font-size: 23px;
+      }
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .finder-verified .container {
+      grid-template-columns: 5fr 7fr;
       text-align: left;
     }
-    .featured-post__title { font-size: 23px; }
   }
-} 
+}
 
-@media (min-width: 768px) and (max-width: 991px) {
-  .finder-verified .container{ grid-template-columns: 5fr 7fr; text-align: left;}
+body:not(.remap-cashback-landing){
+  .cashback-features,
+  .cashback-hero,
+  .finder-verified,
+  .rewards-compare,
+  .featured-posts,
+  .cashback-cta-wrap,
+  .digital-card,
+  .award-winning-section{ display: none;}
 }

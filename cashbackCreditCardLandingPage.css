@@ -1,7 +1,16 @@
 @charset "UTF-8";
-#__nuxt header.wrap-header + div + div,
-#__nuxt #spyRatesAndFees + section.container,
-#__nuxt section.cashback-earned-point {
+header.wrap-header + div + div.relative,
+#spyRatesAndFees + section.container,
+.rewards-compare + section,
+div.remap-perks-use + div + div {
+  display: none;
+}
+
+header.wrap-header + div + div.custom-banner {
+  display: block;
+}
+
+.award-winning-section-bottom {
   display: none;
 }
 
@@ -10,8 +19,7 @@
   background: linear-gradient(180deg, #F5FCE1 0%, #FFF 100%);
 }
 .cashback-hero .container {
-  -moz-column-gap: 80px;
-       column-gap: 80px;
+  column-gap: 80px;
   align-items: center;
 }
 .cashback-hero .cashback-hero__badge {
@@ -69,8 +77,7 @@
 }
 
 .finder-verified .container {
-  -moz-column-gap: 33px;
-       column-gap: 33px;
+  column-gap: 33px;
   align-items: center;
   padding: 24px 23px;
   border-radius: 12px;
@@ -125,6 +132,10 @@
   margin-top: 64px;
 }
 
+.award-winning-section {
+  transform: unset !important;
+}
+
 /*____Reward compare section____*/
 .rewards-compare .rewards-compare__title {
   color: #0B2828;
@@ -135,8 +146,7 @@
   margin-bottom: 56px;
 }
 .rewards-compare .rewards-compare__grid {
-  -moz-column-gap: 24px;
-       column-gap: 24px;
+  column-gap: 24px;
   row-gap: 24px;
 }
 .rewards-compare .rewards-compare__card {
@@ -287,7 +297,6 @@
 /*_____Cashback Earned point_____*/
 .cashback-earned-point h3 + div.opacity-0 {
   opacity: 1;
-  max-height: -moz-max-content;
   max-height: max-content;
 }
 .cashback-earned-point h3 + div.opacity-0 a:last-child {
@@ -307,16 +316,16 @@
 }
 
 /*____Perks use section___*/
-#perks-use .container {
+.remap-perks-use .container {
   padding-top: 2rem;
 }
-#perks-use .perks-use-content .flex-row > div:first-child {
+.remap-perks-use .perks-use-content .flex-row > div:first-child {
   display: none;
 }
-#perks-use .perks-use-content {
+.remap-perks-use .perks-use-content {
   padding-top: 22px;
 }
-#perks-use .perks-use-content h3::before {
+.remap-perks-use .perks-use-content h3::before {
   content: "";
   display: inline-block;
   flex-shrink: 0;
@@ -331,7 +340,7 @@
   display: block;
   margin-bottom: 12px;
 }
-#perks-use .perks-use-content a {
+.remap-perks-use .perks-use-content a {
   color: rgba(0, 0, 0, 0.7);
   font-weight: 400;
   margin-bottom: 25px;
@@ -356,8 +365,7 @@
   display: none;
 }
 .digital-card .digital-card__grid {
-  -moz-column-gap: 80px;
-       column-gap: 80px;
+  column-gap: 80px;
   row-gap: 32px;
 }
 .digital-card .digital-card__title {
@@ -383,20 +391,20 @@
 }
 
 /*_____Review___*/
-#spyReviews {
+.remap-spy-reviews {
   background-color: #F5FCD9;
   padding: 56px 0;
 }
-#spyReviews > div.absolute:first-child {
+.remap-spy-reviews > div.absolute:first-child {
   display: none;
 }
-#spyReviews .reviews__cta-wrap + div.container {
+.remap-spy-reviews > div > div.container:last-child {
   display: none;
 }
-#spyReviews .container-narrowed h2 {
+.remap-spy-reviews .container-narrowed h2 {
   max-width: 460px;
 }
-#spyReviews .scroll-animate-slide-right {
+.remap-spy-reviews .scroll-animate-slide-right {
   opacity: 1 !important;
   transform: none !important;
 }
@@ -414,8 +422,7 @@
   margin-bottom: 48px;
 }
 .featured-posts .featured-posts__grid {
-  -moz-column-gap: 24px;
-       column-gap: 24px;
+  column-gap: 24px;
   row-gap: 24px;
   max-width: 1180px;
   margin: 0 auto;
@@ -438,8 +445,7 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .featured-posts .featured-post__body {
   padding: 16px;
@@ -486,8 +492,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .featured-posts .featured-post__date,
 .featured-posts .featured-post__read {
@@ -531,8 +536,7 @@
     margin-right: auto;
   }
   .cashback-credit-benefits {
-    -moz-column-gap: 10px;
-         column-gap: 10px;
+    column-gap: 10px;
     row-gap: 4px;
   }
   .cashback-credit-benefits li {
@@ -552,8 +556,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    -moz-column-gap: 0;
-         column-gap: 0;
+    column-gap: 0;
     row-gap: 24px;
   }
   .cashback-hero .cashback-hero__content {
@@ -667,13 +670,13 @@
     height: 80px;
   }
   /*____Perks Use___*/
-  #perks-use .container {
+  .remap-perks-use .container {
     padding-top: 30px;
   }
-  #perks-use h2 {
+  .remap-perks-use h2 {
     margin-bottom: -10px;
   }
-  #perks-use .perks-use-content a {
+  .remap-perks-use .perks-use-content a {
     margin-bottom: 5px;
   }
   /*___Digital card___*/
@@ -694,10 +697,10 @@
     font-size: 19px;
   }
   /*____Review____*/
-  #spyReviews .container-narrowed {
+  .remap-spy-reviews .container-narrowed {
     margin-bottom: 27px;
   }
-  #spyReviews .carousel-container {
+  .remap-spy-reviews .carousel-container {
     margin-bottom: 0;
   }
   /*___Featured posts (blog)___*/
@@ -722,4 +725,6 @@
     grid-template-columns: 5fr 7fr;
     text-align: left;
   }
-}/*# sourceMappingURL=cashbackCreditCardLandingPage.css.map */
+}
+
+/*# sourceMappingURL=cashbackCreditCardLandingPage.css.map */
